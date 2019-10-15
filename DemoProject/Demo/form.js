@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, StatusBar, Text, StyleSheet, TextInput, TouchableOpacity,Alert } from 'react-native';
 import Card from './Card'
+import Login from './App';
 
 export default class Form extends Component {
   constructor(props) {
@@ -9,6 +10,20 @@ export default class Form extends Component {
       titleText: "Login Form",
     };
   }
+
+  onPress = () => {
+    Alert.alert('Let us Login',
+    'Information is Saved',
+    [
+    {
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel',
+    },
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ])
+  }
+
   render() {
     return (
       <View style={{
@@ -20,12 +35,19 @@ export default class Form extends Component {
           backgroundColor: 'powderblue',
           alignItems: 'center',
           justifyContent: 'center'}}>
-          <Text style = {styles.titleText}> {'\n'}{'\n'}{this.state.titleText} </Text>
+          
+          <Text style = {styles.titleText}>
+            {'\n'}{'\n'}{this.state.titleText}
+           </Text>
          </View>
         
         <View style={{flex: 5, backgroundColor: 'white'}}>
          
-          <View style = {{flexDirection: 'row' ,paddingTop: 40, alignItems: 'center'}}>
+          <View style = {{
+            flexDirection: 'row',
+            paddingTop: 40,
+            alignItems: 'center'}}>
+          
           <Text style = {styles.baseText}> Name{'\t\t\t'}  </Text>
            <TextInput placeholder = "Enter Your Name Here." style={{ 
              height: 40,
@@ -59,7 +81,7 @@ export default class Form extends Component {
                borderRadius: 30,
                alignItems: "center",
                justifyContent: "center"
-             }}>
+             }} onPress = {this.onPress}>
                <Text style = {{fontSize: 20, fontWeight: 'bold' }}>
                  Login
                </Text>
