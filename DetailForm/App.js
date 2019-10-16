@@ -6,9 +6,8 @@
  * @flow
  */
 
-import React from 'react'
-// import {View} from 'react-native'
-import Form from './form'
+import React from 'react';
+import Form from './Form'
 
 export default class Login extends React.Component{
   render(){
