@@ -15,11 +15,18 @@ export default class Form extends Component {
     };
   }
   
-  // state = { appText: 'Hello World' }
-  
-  writeText = text => {
+  writeText = (text1,text2) => {
     this.setState({
-      appText: text
+      appText: text1 +'  ' + text2
+    })
+  }
+
+  submitAndClear = () => {
+    this.writeText(this.state.username, this.state.password)
+
+    this.setState({
+      username: '',
+      password: ''
     })
   }
   
@@ -69,6 +76,7 @@ export default class Form extends Component {
           <Text style = {styles.baseText}> Name{'\t\t\t'}  </Text>
           <TextInput placeholder = "Enter Your Name Here." 
           onChangeText = {(text) => this.setState({username:text})}
+          value = {this.state.username}
           style={{ 
             height: 40,
             borderColor: 'gray',
@@ -84,7 +92,9 @@ export default class Form extends Component {
           <Text style = {styles.baseText}> Password{'\t '} </Text>
           <TextInput 
           placeholder = "••••••••" 
+          // onChangeText={text => this.setState({ text })}
           onChangeText={(text) => this.setState({password:text})}
+          value={this.state.password}
           style={{ 
             height: 40,
             borderColor: 'gray',
@@ -104,7 +114,7 @@ export default class Form extends Component {
             borderRadius: 30,
             alignItems: "center",
             justifyContent: "center"
-          }} onPress = {this.onPressOfLogin}>
+          }} onPress = {this.submitAndClear}>
           <Text style = {{fontSize: 20, fontWeight: 'bold' }}>
           Login
           </Text>
@@ -114,15 +124,24 @@ export default class Form extends Component {
           onPress={this.login.bind(this)}>
           <Text style={styles.titleText} >Show</Text>
           </TouchableOpacity>
+          <View>
+            <Text>
+            {this.writeText}
+            </Text>
+          </View>
+          
+
           <Text>
           {this.state.username}
           {'\n'}{this.state.password}
+          {'\n'}{'\n'}{'\n'}
+          {this.state.appText}
           </Text>
           
-          <View style = {{padding: 20}}>
+          {/* <View style = {{padding: 20}}>
           <Text>{this.state.appText}</Text>
           <ChangeText writeText={this.writeText} />
-          </View>
+          </View> */}
           
           </View>       
           </View>
