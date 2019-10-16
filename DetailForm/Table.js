@@ -4,14 +4,14 @@ import {View, Text, FlatList} from 'react-native'
 export default class Table extends Component{
 
     renderItems(rowData){
-        console.warn("item", rowData)
+        // console.warn("item", rowData)
         return(
             <View>
-            <Text>{rowData.item.firstname}</Text>
-            <Text>{rowData.item.last_name}</Text>
-            <Text>{rowData.item.email}</Text>
-            <Text>{rowData.item.birthdate}</Text>
-            <Text>{rowData.item.password}</Text>
+             <Text>{rowData.item.firstname}</Text>
+             <Text>{rowData.item.last_name}</Text>
+             <Text>{rowData.item.email}</Text>
+             <Text>{rowData.item.birthdate}</Text>
+             <Text>{rowData.item.password}</Text>
             </View>
            
         );

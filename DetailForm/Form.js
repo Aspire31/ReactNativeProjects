@@ -24,9 +24,13 @@ import {
                 birthdate: '',
                 password: '',
                 record: '',
-                empRecord: []
+                empRecord: [],
+                isFocused: false
             };
         }
+
+        handleFocus = () => this.setState({ isFocused: true });
+        handleBlur = () => this.setState({ isFocused: false });
 
         handleChange() {
             let payload = {
