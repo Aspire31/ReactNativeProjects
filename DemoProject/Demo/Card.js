@@ -65,7 +65,6 @@ function Item({ username, description, image, time }) {
                     borderWidth: 1,
                 },
                 item: {
-                    // backgroundColor: '#f9c2ff',
                     padding: 20,
                     marginVertical: 10,
                     marginHorizontal: 16,
