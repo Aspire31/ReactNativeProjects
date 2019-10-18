@@ -29,9 +29,6 @@ import {
             };
         }
 
-        handleFocus = () => this.setState({ isFocused: true });
-        handleBlur = () => this.setState({ isFocused: false });
-
         handleChange() {
             let payload = {
                 firstname: this.state.first_name,
