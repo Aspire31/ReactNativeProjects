@@ -21,36 +21,31 @@ export default class ComponentsBasedUI extends React.Component {
         </View>
 
         <View style={styles.midView}>
-          <ImageList/>
+          <ImageList />
         </View>
-        
+
         <View style={styles.footerView}>
-        <TouchableOpacity>
-        <Icon name = "md-home" size = {40} color = "#D3D3D3"/>
-        
-        </TouchableOpacity>
-        <TouchableOpacity>
-        <Icon name = "ios-search" size = {40} color = "#D3D3D3"/>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-        <Icon name = "md-person" size = {40} color = "#D3D3D3"/>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-        <Icon name = "ios-notifications" size = {40} color = "#D3D3D3"/>
-        </TouchableOpacity>
-          
           <TouchableOpacity>
-          <Icon name = "md-settings" size = {40} color = "#D3D3D3"/>
+            <Icon name="md-home" size={40} color="#D3D3D3" />
+
           </TouchableOpacity>
-          
-         
-        
-          
-          
+          <TouchableOpacity>
+            <Icon name="ios-search" size={40} color="#D3D3D3" />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Icon name="md-person" size={40} color="#D3D3D3" />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Icon name="ios-notifications" size={40} color="#D3D3D3" />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Icon name="md-settings" size={40} color="#D3D3D3" />
+          </TouchableOpacity>
         </View>
-       
+
 
       </View>
     );
