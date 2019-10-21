@@ -23,7 +23,7 @@ export default class ImageList extends React.Component {
             <View style={styles.container}>
                 <View style={styles.item}>
                     <Image
-                        style={{ height: 100, width: 100 }}
+                        style={{ height: 100, width: 100, borderRadius: 20 }}
                         source={{ uri: item.url }}
                     />
                 </View>
@@ -38,7 +38,7 @@ export default class ImageList extends React.Component {
                     data={itemData}
                     numColumns={3}
                     renderItem ={this.renderData}
-                    keyExtractor={(index) => index.toString()}
+                    keyExtractor={(item,index) => index.toString()}
                 />
             </View>
         )
@@ -48,14 +48,13 @@ export default class ImageList extends React.Component {
 const styles = StyleSheet.create({
     container: {
         borderColor: 'lightgray',
-        borderRadius: 10,
     },
     item: {
         marginVertical: 10,
         marginHorizontal: 10,
         flexDirection: "row",
         justifyContent: 'space-around',
-        borderRadius: 20,
+        // borderRadius: 20,
         elevation: 3,
         shadowOpacity: 0.5,
         shadowColor: 'black'

@@ -2,9 +2,14 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  TouchableOpacity
 } from 'react-native';
 import TopView from './topView'
 import ImageList from './imagesList'
+import Icon from 'react-native-vector-icons/Ionicons'
+// import Icon from 'react-native-vector-icons/FontAwesome'
+
+Icon.loadFont();
 
 
 export default class ComponentsBasedUI extends React.Component {
@@ -20,8 +25,32 @@ export default class ComponentsBasedUI extends React.Component {
         </View>
         
         <View style={styles.footerView}>
+        <TouchableOpacity>
+        <Icon name = "md-home" size = {40} color = "#D3D3D3"/>
+        
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <Icon name = "ios-search" size = {40} color = "#D3D3D3"/>
+        </TouchableOpacity>
 
+        <TouchableOpacity>
+        <Icon name = "md-person" size = {40} color = "#D3D3D3"/>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Icon name = "ios-notifications" size = {40} color = "#D3D3D3"/>
+        </TouchableOpacity>
+          
+          <TouchableOpacity>
+          <Icon name = "md-settings" size = {40} color = "#D3D3D3"/>
+          </TouchableOpacity>
+          
+         
+        
+          
+          
         </View>
+       
 
       </View>
     );
@@ -39,6 +68,10 @@ const styles = StyleSheet.create({
     flex: 6,
   },
   footerView: {
-    flex: 1,
+    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    paddingBottom: 20,
+    paddingTop: 5
   }
 });

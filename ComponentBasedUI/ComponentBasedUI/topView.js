@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StatusBar, StyleSheet, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { View, Text, StatusBar, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign'
 
 Icon.loadFont();
 
@@ -8,18 +8,19 @@ function TopView() {
     return (
         <View style={styles.topView}>
             <StatusBar barStyle="light-content" />
-            
-            <View style={{flex: 1}}>
-                {/* <Icon name = "search" /> */}
-            
-            <Image  
-            style ={{height: 50, width: 50,backgroundColor:'red'}}
-            source = {{uri:'https://image.flaticon.com/icons/svg/61/61752.svg' }} 
-             />
+
+            <View style={{ flex: 1 }}>
+                <TouchableOpacity>
+                <Icon name="arrowleft" size = {30} color = "#ffffff" />
+                </TouchableOpacity>
+                {/* <Image  
+            style ={{height: 50, width: 50}}
+            source = {{uri:'https://cdn.iconscout.com/icon/premium/png-512-thumb/left-arrow-back-vector-35872.png' }} 
+             /> */}
             </View>
 
-            <View style={{flex: 1.7, alignItems: 'center'}}>
-            <Text style={styles.TextView}> Gallery </Text>
+            <View style={{ flex: 1.7, alignItems: 'center' }}>
+                <Text style={styles.TextView}> Gallery </Text>
             </View>
 
             <View style={styles.votesView}>
@@ -34,7 +35,7 @@ function TopView() {
 const styles = StyleSheet.create({
     topView: {
         flex: 1,
-        backgroundColor: '#ff6a00',
+        backgroundColor: '#ff9900',
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 50,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         height: 10,
         width: 10,
-        backgroundColor: "#ff6a00"
+        backgroundColor: "#ff9900"
 
     },
 })
