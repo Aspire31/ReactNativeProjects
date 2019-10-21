@@ -7,13 +7,23 @@ import {
     TextInput,
     TouchableOpacity,
     Alert,
+    Keyboard
 } from 'react-native';
 
 import Table from './Table'
-import { updateExpression } from '@babel/types';
+
+const isInvalid = (val) => {
+    return val.length == 0;
+}
 
 
 export default class Form extends Component {
+
+    // state = {
+    //     val1: '',
+    //     val2: '',
+    //     val3: ''
+    // }
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +35,6 @@ export default class Form extends Component {
             password: '',
             record: '',
             empRecord: [],
-            buttonStateHolder: true,
             buttonTitle: 'Save',
         };
     }
@@ -39,10 +48,9 @@ export default class Form extends Component {
                         onPress: () => { console.log('OK Pressed Validation') },
                     }
                 ])
-            this.state.buttonStateHolder = true
         } else {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)) {
-                this.state.buttonStateHolder = false
+                Keyboard.dismiss();
                 let payload = {
                     id: new Date().getUTCMilliseconds(),
                     first_name: this.state.first_name,
@@ -63,7 +71,6 @@ export default class Form extends Component {
                         email: '',
                         birthdate: '',
                         password: '',
-                        buttonStateHolder: true
                     },
                     () => {
                         console.log(this.state.empRecord)
@@ -78,10 +85,6 @@ export default class Form extends Component {
                         }
 
                     ])
-
-                    this.setState({
-                        buttonStateHolder: true
-                    })
             }
         }
     }
@@ -199,7 +202,29 @@ export default class Form extends Component {
         // })
     }
 
+    submitInput = (type) => {
+        // this //gives access to all the method in it via ref
+        // debugger
+        switch (type) {
+            case 1:
+                this.input2.focus();
+                break;
+            case 2:
+                this.input3.focus();
+                break;
+            case 3:
+                this.handleChange();
+                break;
+        }
+    }
+
+
     render() {
+        const { first_name, last_name, email } = this.state; //object destructor, direct use
+
+        const isButtonDisabled = isInvalid(first_name) || isInvalid(last_name) || isInvalid(email)
+        const buttonStateHolder = isButtonDisabled ? true : false
+
         return (
             <View style={{ flex: 6 }}>
                 <StatusBar backgroundColor="black" barStyle="light-content" />
@@ -214,27 +239,34 @@ export default class Form extends Component {
                     <View style={styles.imputView}>
                         <Text style={styles.baseText}> First Name</Text>
                         <TextInput placeholder="First Name Over Here"
-                            onChangeText={(text) => this.setState({ first_name: text, buttonStateHolder: true })}
-                            value={this.state.first_name}
+                            onChangeText={(text) => this.setState({ first_name: text})}
+                            value={first_name}
                             clearButtonMode='while-editing'
+                            ref={ref => this.input1 = ref} //in input1, we get ref
+                            onSubmitEditing={() => this.submitInput(1)}
                             style={styles.textfield} />
                     </View>
 
                     <View style={styles.imputView}>
                         <Text style={styles.baseText}> Last Name</Text>
                         <TextInput placeholder="Last Name Over Here"
-                            onChangeText={(text) => this.setState({ last_name: text, buttonStateHolder: true })}
+                            onChangeText={(text) => this.setState({ last_name: text})}
                             value={this.state.last_name}
                             clearButtonMode='while-editing'
+                            ref={ref => this.input2 = ref}
+                            onSubmitEditing={() => this.submitInput(2)}
                             style={styles.textfield} />
                     </View>
 
                     <View style={styles.imputView}>
                         <Text style={styles.baseText}> Email</Text>
                         <TextInput placeholder="Email Id Please"
-                            onChangeText={(text) => this.setState({ email: text, buttonStateHolder: false })}
+                            onChangeText={(text) => this.setState({ email: text})}
                             value={this.state.email}
                             clearButtonMode='while-editing'
+                            ref={ref => this.input3 = ref}
+                            onSubmitEditing={() => this.submitInput(3)}
+                            returnKeyType='done'
                             style={styles.textfield} />
                     </View>
 
@@ -257,10 +289,10 @@ export default class Form extends Component {
                             </View> */}
 
                     <View style={styles.buttonView}>
-                        <TouchableOpacity style={[styles.buttonBackground, { backgroundColor: this.state.buttonStateHolder ? 'lightgray' : 'powderblue' }]}
+                        <TouchableOpacity style={[styles.buttonBackground, { backgroundColor: buttonStateHolder ? 'lightgray' : 'powderblue' }]}
                             //   onPress = {this.submitAndClear}
                             onPress={() => this.handleChange()}
-                            disabled={this.state.buttonStateHolder}
+                            disabled={isButtonDisabled}
                         >
 
                             <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
