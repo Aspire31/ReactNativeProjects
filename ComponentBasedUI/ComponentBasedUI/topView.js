@@ -9,7 +9,7 @@ function TopView() {
         <View style={styles.topView}>
             <StatusBar barStyle="light-content" />
 
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, paddingLeft: 10 }}>
                 <TouchableOpacity>
                 <Icon name="arrowleft" size = {30} color = "#ffffff" />
                 </TouchableOpacity>
