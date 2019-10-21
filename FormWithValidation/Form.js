@@ -128,6 +128,34 @@ export default class Form extends Component {
             ])
     }
 
+//     handleOnUpdate = () => {
+//          let st = this.state
+//      if (st.name != '' && st.email != '' && st.designation != '' && st.company != '') {
+//          let payLoad = {
+//              id : st.id,
+//              name : st.name,
+//              email : st.email,
+//              designation : st.designation,
+//              company : st.company,
+//          };
+//          let userData = st.userData;
+//          userData[currKey] = payLoad;
+//          this.setState(
+//              {
+//              userData: userData,
+//              }
+//          );
+//      }
+//      this.setState({
+//          isHidden : true,
+//          name : '',
+//          email : '',
+//          designation : '',
+//          company : '',
+//      })
+//  }
+ 
+
     handleEdit = (id) => {
         Alert.alert('Are you sure you want to edit?',
             null,
@@ -143,10 +171,12 @@ export default class Form extends Component {
                                 last_name: temp[indexToEdit].last_name,
                                 email: temp[indexToEdit].email
                             })
-                            temp.splice(indexToEdit, 1)
-                            this.setState({
-                                empRecord: temp
-                            })
+
+
+                            // temp.splice(indexToEdit, 1)
+                            // this.setState({
+                            //     empRecord: temp
+                            // })
                         }
                     },
                     style: 'default'
