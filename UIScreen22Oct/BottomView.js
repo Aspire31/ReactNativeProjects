@@ -77,7 +77,7 @@ export const BottomView = React.memo(function pureFunction() {
                         Description
                      </Text>
                 </View>
-                <Text style={styles.descriptionTextInfo} >
+                <Text numberOfLines = {4} style={styles.descriptionTextInfo} >
                     This challenge is all about uploading the posts bout your recent travels
                     to places that are usually less travelled. Post more of your travelling pictures
                     and get the chance to win.
@@ -92,9 +92,9 @@ export const BottomView = React.memo(function pureFunction() {
                      </Text>
                 </View>
 
-                <View style={{ flexDirection: 'column' }}>
+                <View style={{ flexDirection: 'column' , marginTop: 10}}>
                     <View style={{ flexDirection: 'row' }}>
-                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20 }} />
+                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20, paddingTop: 10 }} />
 
                         <Text style={styles.rulesTextInfo} >
                             You need to travel to places where people have not visited much or is not
@@ -103,7 +103,7 @@ export const BottomView = React.memo(function pureFunction() {
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
-                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20 }} />
+                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20, paddingTop: 10  }} />
 
                         <Text style={styles.rulesTextInfo} >
                             Click a picture of yours or of that place or whatever you feel, looks amazing and
@@ -112,7 +112,7 @@ export const BottomView = React.memo(function pureFunction() {
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
-                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20 }} />
+                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20, paddingTop: 10  }} />
 
                         <Text style={styles.rulesTextInfo} >
                             Upload directly from the camera or can choose from your gallery.
@@ -120,7 +120,7 @@ export const BottomView = React.memo(function pureFunction() {
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
-                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20 }} />
+                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20, paddingTop: 10  }} />
 
                         <Text style={styles.rulesTextInfo} >
                             Do give the caption of the image uploaded by you.
@@ -176,12 +176,12 @@ const styles = StyleSheet.create({
         paddingLeft: 40
     },
     totalDollar: {
-        color: '#fad25a',
+        color: '#ff7700',
         fontSize: 22
     },
     dollarStyle: {
         fontSize: 17,
-        color: '#fad25a',
+        color: '#ff7700',
         paddingLeft: 75,
         paddingTop: 5
     },
@@ -219,15 +219,15 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         color: '#838383',
         fontSize: 14,
-        flexShrink: 1
+        flexShrink: 1,
     },
     rulesTextInfo: {
         paddingLeft: 10,
         paddingRight: 10,
         color: '#838383',
         fontSize: 13,
-        // flexWrap: 'wrap',
-        flexShrink: 1
+        flexShrink: 1,
+        paddingTop: 10
     }
 })
 

@@ -15,6 +15,7 @@ import {
 
 import { ImageView } from './ImageView';
 import { BottomView } from './BottomView';
+import Footer from './Footer';
 
 
 
@@ -30,7 +31,7 @@ export default class App extends React.PureComponent {
           <BottomView />
         </View>
         <View style = {styles.footer}>
-
+          <Footer />
         </View>
       </View>
     );
