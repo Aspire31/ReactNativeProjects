@@ -31,12 +31,12 @@ export const BottomView = React.memo(function pureFunction() {
                             220
                         </Text>
                     </View>
-
-
                 </View>
 
             </View>
+
             <View style={styles.prizeListing}>
+                
 
             </View>
             <View style={styles.description} >
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         color: '#fad25a',
         fontSize: 22
     },
-    dollarStyle:{
+    dollarStyle: {
         fontSize: 17,
         color: '#fad25a',
         paddingLeft: 75,
