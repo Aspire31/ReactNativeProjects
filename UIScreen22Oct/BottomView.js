@@ -126,7 +126,13 @@ export const BottomView = React.memo(function pureFunction() {
                             Do give the caption of the image uploaded by you.
                         </Text>
                     </View>
-                    
+                    <View style={{ flexDirection: 'row' }}>
+                        <Icon name="md-checkmark" size={20} color="#50c878" style={{ paddingLeft: 20, paddingTop: 10  }} />
+
+                        <Text style={styles.rulesTextInfo} >
+                            Do give the caption of the image uploaded by you.
+                        </Text>
+                    </View>
                 </View>
             </View>
 
