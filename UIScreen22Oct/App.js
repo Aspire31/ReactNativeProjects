@@ -41,10 +41,6 @@ export default class App extends React.PureComponent {
         </View>
 
       </ScrollView>
-
-
-
-
     );
   }
 }
