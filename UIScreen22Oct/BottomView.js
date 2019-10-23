@@ -126,6 +126,7 @@ export const BottomView = React.memo(function pureFunction() {
                             Do give the caption of the image uploaded by you.
                         </Text>
                     </View>
+                    
                 </View>
             </View>
 
@@ -195,6 +196,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowOffset: { height: 10, width: 10 },
         marginRight: 5,
+        marginTop: 20,
+        marginBottom:20,
     },
     item: {
         paddingLeft: 0

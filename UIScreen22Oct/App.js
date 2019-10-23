@@ -23,27 +23,28 @@ import Footer from './Footer';
 export default class App extends React.PureComponent {
   render() {
     return (
-      <ScrollView 
-      contentContainerStyle={{flex: 1}} 
+      <ScrollView
+        style={{height: 500, width: "100%"}}
+        // contentContainerStyle={{ flex: 1 }}
       >
-        <View style={{ flex: 1 }}>
+
         <StatusBar barStyle='light-content' />
         <View style={styles.topView} >
           <ImageView />
         </View>
-       
+
         <View style={styles.bottomView} >
           <BottomView />
         </View>
-        <View style = {styles.footer}>
+        <View style={styles.footer}>
           <Footer />
         </View>
-        </View>
-        </ScrollView>
-        
-      
-      
-      
+
+      </ScrollView>
+
+
+
+
     );
   }
 }

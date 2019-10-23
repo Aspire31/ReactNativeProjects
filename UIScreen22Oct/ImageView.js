@@ -8,7 +8,7 @@ export const ImageView = React.memo(function pureFunction() {
     return (
         <View>
             <Image
-                style={{ height: '103%', width: '100%' }}
+                style={{ height: 260, width: 375 }}
                 source={{ uri: 'https://media.suara.com/pictures/480x260/2018/03/02/78948-travelling-murah.jpg' }}
             />
             <Icon name="md-arrow-back" size={35} color="#ffffff" style={styles.backIcon} />
