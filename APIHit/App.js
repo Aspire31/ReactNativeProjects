@@ -116,3 +116,62 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5
   }
 })
+
+// axios.get('https://dog.ceo/api/breeds/image/random')
+//     .then(response => {
+//         console.log(response);
+//         this.setState({ message: response.data.message, status: response.data.status });
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+
+// render() {
+//     return (
+//         <View>
+//             <Text style={{ backgroundColor: 'powderblue', color: 'white', fontWeight: 'bold', paddingTop: 100 }}>
+//                 Message: {this.state.message}
+//             </Text>
+//             <Text>
+//                 {this.state.status}
+//             </Text>
+//         </View>
+//     );
+// }
+
+// return fetch('https://jsonplaceholder.typicode.com/users')
+//     .then((response) => response.json())
+//     .then((responseJson) => {
+//         this.setState({
+//             empdata: responseJson
+
+//         })
+//         //  console.warn(this.state.empdata.name)
+//         // for (object in this.state.empdata) {
+//         //    console.warn(object)
+//         //  }
+//         this.state.empdata.forEach(object => {
+//             console.warn(object.name)
+
+//         });
+//     })
+
+// axios.post('https://jsonplaceholder.typicode.com/posts')
+//     .then(response => {
+//         console.warn("resp", response)
+//         const userData1 = response;
+//         this.setState({
+//             userData: userData1
+//         });
+
+//         console.warn(`Status code: ${response.status}`);
+//         console.warn(`Status text: ${response.statusText}`);
+//         console.warn(`Request method: ${response.request.method}`);
+//         console.warn(`Path: ${response.request.path}`);
+//         console.warn(`Date: ${response.headers.date}`);
+//         console.warn(`Data: ${response.data}`);
+
+//         Error
+//     }).catch(err => {
+//         console.warn("err", err)
+//     })
