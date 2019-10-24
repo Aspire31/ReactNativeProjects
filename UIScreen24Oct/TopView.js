@@ -21,7 +21,7 @@ function TopView() {
             </View>
 
             <View style={{ flex: 1.7, alignItems: 'center' }}>
-                <Text style={styles.TextView}> Gallery </Text>
+                <Text style={styles.TextView}> Hall Of Fame </Text>
             </View>
 
             <View style={styles.votesView}>
