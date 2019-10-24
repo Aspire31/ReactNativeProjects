@@ -113,8 +113,10 @@ const styles = StyleSheet.create({
     },
     whiteBase: {
         position: 'absolute',
-        top: 140,
-        left: 40,
+        top: '84.5%',
+        left: '13.5%',
+        justifyContent:'center',
+        alignItems:'center'
     },
     ribbonImage: {
         height: 70,

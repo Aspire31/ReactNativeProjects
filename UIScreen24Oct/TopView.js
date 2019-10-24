@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ff9900',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 50,
+        paddingTop: 30,
         flexDirection: "row"
     },
     TextView: {

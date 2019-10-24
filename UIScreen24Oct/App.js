@@ -60,7 +60,7 @@ export default class App extends PureComponent {
 
 const styles = StyleSheet.create({
   topView: {
-    height: 100
+    height: '10%'
   },
   footerView: {
     flexDirection: 'row',
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
   },
   bottomScroll: {
     position: 'absolute',
-    top: 650,
-    left: 300,
+    top: '80%',
+    left: '80%',
     backgroundColor: '#ff9900',
     height: 50,
     width: 50,
