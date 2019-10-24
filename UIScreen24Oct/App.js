@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import {  View, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import TopView from './TopView';
-import {BottomView} from './BottomView';
+import BottomView from './BottomView';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -11,27 +11,28 @@ export default class App extends PureComponent {
   }
 
   render() {
+    let counter = -1;
     return (
-      <View style = {{flex: 1}}>
-        <View style = {styles.topView}>
-        <TopView />
+        <View style={{ flex: 1 }}>
+          <View style={styles.topView}>
+            <TopView />
+          </View>
+          <ScrollView>
+          <View style={styles.bottomView} >
+            <BottomView counted={counter + 1} month='1' />
+            <BottomView counted={counter + 2} month='2' />
+          </View>
+          </ScrollView>
         </View>
-
-        <View style = {styles.bottomView} >
-          <BottomView />
-        </View>
-
-        
-      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  topView:{
-    flex: 1
+  topView: {
+    height: 100
   },
-  bottomView:{
-    flex: 6
+  bottomView: {
+    //flex: 6,
   }
 })
