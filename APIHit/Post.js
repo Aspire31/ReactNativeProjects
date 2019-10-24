@@ -81,18 +81,6 @@ export default class APIHit extends Component {
                 </TouchableOpacity>
 
                 {/* <Image source={{ uri: this.state.image } }/> */}
-                {/* <FlatList
-        style={{ marginTop: 20 }}
-        data={this.state.userData}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.container}>
-            <Text style={styles.text}>Department ID - {item.userId} </Text>
-            <Text style={styles.text}> ID : {item.id} </Text>
-            <Text style={styles.text}> TITLE : {item.title}</Text>
-            <Text style={styles.text}> COMPLETED : {`${item.completed}`}</Text>
-          </View>
-        )} /> */}
             </View>
         );
     }
