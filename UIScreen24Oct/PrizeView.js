@@ -29,17 +29,17 @@ const styles = StyleSheet.create({
 
 const DATA = [
     {
-        image = '',
+        imageURL = 'https://ichef.bbci.co.uk/news/660/cpsprodpb/F76F/production/_101934336_hi001487062.jpg',
         text = '1st Prize',
         badge = require('./Images/first.png')
     },
     {
-        image = '',
+        imageURL = 'https://www.asiaone.com/sites/default/files/original_images/Oct2019/20191003_foxes_pixabay.jpg',
         text = '1st Prize',
         badge = require('./Images/second.png')
     },
     {
-        image = '',
+        imageURL = 'https://media.wired.com/photos/5d3646cc65c5e400082d459a/master/w_2560%2Cc_limit/Sceince_Adaptation-130859883.jpg',
         text = '1st Prize',
         badge = require('./Images/third.png')
     }
