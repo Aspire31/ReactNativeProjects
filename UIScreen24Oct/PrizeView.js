@@ -4,71 +4,75 @@ import Icon from 'react-native-vector-icons/Ionicons'
 Icon.loadFont();
 
 export default class PrizeView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        topics: ['Jungle Safari','Roads Travelled', 'History'],
-        time: ['1st Jan 2018 - 20th Jan 2018','21st Jan 2018 - 10th Jan 2018','11th Feb 2018 - 10th Mar 2018']
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            topics: ['Jungle Safari', 'Roads Travelled', 'History'],
+            time: ['1st Jan 2018 - 20th Jan 2018', '21st Jan 2018 - 10th Jan 2018', '11th Feb 2018 - 10th Mar 2018']
+        };
+    }
 
-  renderData = (rowData) => {
-    let { item, index } = rowData;
-    return (
-        <View style={styles.container}>
-            <Image
-                source={item.imageURL[this.props.count]}
-                style={{ height: 90, width: 90, borderRadius: 10 }}
-            />
-
-            <View style={styles.badgeStyle}>
-                <Image
-                    style={{ height: 33, width: 33 }}
-                    source={item.badge}
-                />
-                <Text style={styles.prizeText}>
-                    {item.text}
-                </Text>
-            </View>
-        </View>
-    )
-}
-
-  render() {
-    return (
-        <View style={styles.mainView} >
-        <View style={styles.backgroundView} >
-
-            <FlatList
-                data={DATA}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={this.renderData}
-                numColumns={3}
-                scrollEnabled = {false}
-            />
-
-            <View style={styles.whiteBase}>
-                <Image
-                    style={styles.ribbonImage}
-                    source={require('./Images/WhiteBase.png')}
-                />
-
-                <View style={styles.ribbon}>
-                    <Text style={styles.topicText}>
-                        {this.state.topics[this.props.count]}
+    renderData = (rowData) => {
+        let { item, index } = rowData;
+        return (
+            <View style={{ position: 'relative', alignItems: "center", height: 127 }}>
+                <View style={styles.badgeStyle}>
+                    <Image
+                        style={{ height: 33, width: 33 }}
+                        source={item.badge}
+                    />
+                    <Text style={styles.prizeText}>
+                        {item.text}
                     </Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Icon name='ios-timer' size={13} color='gray' />
-                        <Text style={styles.timeText} >
-                        {this.state.time[this.props.count]}
-                        </Text>
+                </View>
+                <View style={styles.container}>
+                    <Image
+                        source={item.imageURL[this.props.count]}
+                        style={{ height: 90, width: 90, borderRadius: 10 }}
+                    />
+
+
+                </View>
+
+            </View>
+        )
+    }
+
+    render() {
+        return (
+            <View style={styles.mainView} >
+                <View style={styles.backgroundView} >
+
+                    <FlatList
+                        data={DATA}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={this.renderData}
+                        numColumns={3}
+                        scrollEnabled={false}
+                    />
+
+                    <View style={styles.whiteBase}>
+                        <Image
+                            style={styles.ribbonImage}
+                            source={require('./Images/WhiteBase.png')}
+                        />
+
+                        <View style={styles.ribbon}>
+                            <Text style={styles.topicText}>
+                                {this.state.topics[this.props.count]}
+                            </Text>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Icon name='ios-timer' size={13} color='gray' />
+                                <Text style={styles.timeText} >
+                                    {this.state.time[this.props.count]}
+                                </Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
             </View>
-        </View>
-    </View>
-    );
-  }
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -96,10 +100,10 @@ const styles = StyleSheet.create({
     badgeStyle: {
         flexDirection: 'row',
         position: 'absolute',
-        top: 70,
-        left: 15,
+        top: 87,
         backgroundColor: 'white',
-        borderRadius: 10
+        borderRadius: 10,
+        zIndex: 1000
     },
     prizeText: {
         fontSize: 12,
@@ -122,15 +126,15 @@ const styles = StyleSheet.create({
     ribbon: {
         flexDirection: 'column',
         position: 'absolute',
-        top:10,
-        left:40,
+        top: 10,
+        left: 40,
     },
     topicText: {
         fontWeight: 'bold',
         fontSize: 18,
     },
     timeText: {
-        paddingLeft:5,
+        paddingLeft: 5,
         fontSize: 11,
         color: 'gray'
     },
@@ -138,17 +142,17 @@ const styles = StyleSheet.create({
 
 const DATA = [
     {
-        imageURL: [require('./Images/hippo.jpg'),require('./Images/road1.jpg'),require('./Images/history1.jpg')],
+        imageURL: [require('./Images/hippo.jpg'), require('./Images/road1.jpg'), require('./Images/history1.jpg')],
         text: '1st',
         badge: require('./Images/first.png')
     },
     {
-        imageURL: [require('./Images/fox.jpg'),require('./Images/road2.jpeg'),require('./Images/history2.jpg')],
+        imageURL: [require('./Images/fox.jpg'), require('./Images/road2.jpeg'), require('./Images/history2.jpg')],
         text: '2nd',
         badge: require('./Images/second.png')
     },
     {
-        imageURL: [require('./Images/bird.jpg'),require('./Images/road3.jpeg'),require('./Images/history3.jpg')],
+        imageURL: [require('./Images/bird.jpg'), require('./Images/road3.jpeg'), require('./Images/history3.jpg')],
         text: '3rd',
         badge: require('./Images/third.png')
     }
