@@ -17,7 +17,7 @@ export default class PrizeView extends Component {
     return (
         <View style={styles.container}>
             <Image
-                source={item.imageURL}
+                source={item.imageURL[this.props.count]}
                 style={{ height: 90, width: 90, borderRadius: 10 }}
             />
 
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     },
     topicText: {
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 18,
     },
     timeText: {
         paddingLeft:5,
@@ -138,17 +138,17 @@ const styles = StyleSheet.create({
 
 const DATA = [
     {
-        imageURL: require('./Images/hippo.jpg'),
+        imageURL: [require('./Images/hippo.jpg'),require('./Images/road1.jpg'),require('./Images/history1.jpg')],
         text: '1st',
         badge: require('./Images/first.png')
     },
     {
-        imageURL: require('./Images/fox.jpg'),
+        imageURL: [require('./Images/fox.jpg'),require('./Images/road2.jpeg'),require('./Images/history2.jpg')],
         text: '2nd',
         badge: require('./Images/second.png')
     },
     {
-        imageURL: require('./Images/bird.jpg'),
+        imageURL: [require('./Images/bird.jpg'),require('./Images/road3.jpeg'),require('./Images/history3.jpg')],
         text: '3rd',
         badge: require('./Images/third.png')
     }
