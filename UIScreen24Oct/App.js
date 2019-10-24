@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, ScrollView, StyleSheet,TouchableOpacity } from 'react-native';
+import { View, ScrollView, StyleSheet, TouchableOpacity,Image } from 'react-native';
 import TopView from './TopView';
 import BottomView from './BottomView';
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -23,11 +23,9 @@ export default class App extends PureComponent {
           <React.Fragment>
             <BottomView counted={counter + 1} month='1' />
             <BottomView counted={counter + 2} month='2' />
-            <View style = {styles.bottomScroll} >
-
-            </View>
           </React.Fragment>
         </ScrollView>
+       
         <View style={styles.footerView}>
           <TouchableOpacity>
             <Icon name="md-home" size={40} color="#D3D3D3" />
@@ -49,6 +47,12 @@ export default class App extends PureComponent {
             <Icon name="md-settings" size={40} color="#D3D3D3" />
           </TouchableOpacity>
         </View>
+        <View style={styles.bottomScroll} >
+              <Image 
+              source = {require('./Images/floatButtonImage.png')}
+              style = {{height: 25, width: 25}}
+              />
+            </View>
       </View>
     );
   }
@@ -64,12 +68,15 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 5
   },
-  bottomScroll:{
+  bottomScroll: {
     position: 'absolute',
-     top: 550, 
-     left: 300, 
-     backgroundColor: '#ff9900', 
-     height: 50, 
-     width: 50 
+    top: 650,
+    left: 300,
+    backgroundColor: '#ff9900',
+    height: 50,
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius:10
   }
 })
