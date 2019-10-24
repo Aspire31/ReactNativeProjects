@@ -25,7 +25,14 @@ function TopView() {
             </View>
 
             <View style={styles.votesView}>
-                <View style={styles.circleView}></View>
+                <View style={styles.circleView}>
+                    
+                    <TouchableOpacity>
+                    <Text style={styles.plusText} >+</Text>
+                    </TouchableOpacity>
+                    
+                </View>
+                
                 <Text style={styles.votesText}>  7/16 Votes </Text>
             </View>
         </View>
@@ -63,12 +70,20 @@ const styles = StyleSheet.create({
         marginRight: 5
     },
     circleView: {
-        borderRadius: 4,
-        height: 10,
-        width: 10,
-        backgroundColor: "#ff9900"
-
+        borderRadius: 7,
+        height: 15,
+        width: 15,
+        backgroundColor: "#ff9900",
+        alignItems: 'center',
+        justifyContent: 'center',
     },
+    plusText:{
+        color: 'white',
+        paddingLeft:3,
+        fontWeight: 'bold',
+        marginRight:4,
+        paddingBottom:18
+    }
 })
 
 export default TopView;
