@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, FlatList, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import axios from 'axios';
 import { Linking } from 'react-native';
+import Icon from 'react-native-vector-icons';
 
 export default class BottomView extends Component {
     constructor(props) {
@@ -72,6 +73,7 @@ export default class BottomView extends Component {
         return (
             <View style={{ flex: 1, marginBottom: 30 }} >
                 <View>
+                    <Icon name = 'search' size = {30} color = '#d3d3d3' />
                     <TextInput
                         placeholder="Search For City Related News!"
                         style={styles.textInputStyle}
