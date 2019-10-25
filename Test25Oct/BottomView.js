@@ -16,11 +16,15 @@ export default class BottomView extends Component {
         };
     }
 
+    // To toggle the lines
+
     toggleNumberOfLines = (index) => {
         this.setState({
             textShown: this.state.textShown === index ? -1 : index,
         });
     }
+
+    //Flatlist Function
 
     renderData = (rowData) => {
         let { item, index } = rowData;
@@ -28,7 +32,7 @@ export default class BottomView extends Component {
             <View style={styles.container}>
                 <Image
                     style={styles.imagestyle}
-                    source={ item.urlToImage == null ?  {uri:'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'} : {uri:item.urlToImage }}
+                    source={ item.urlToImage == null ?  require('./Images/none.jpeg') : {uri:item.urlToImage }}
                 />
                 <Text style={styles.dateStyle}>
                     Date: {item.publishedAt}
@@ -58,6 +62,8 @@ export default class BottomView extends Component {
         )
     }
 
+    //API Hit Function
+
     getFunction = (key) => {
         axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=55bafd6cfa5d49d681938b7eec610228')
             .then(response => {
@@ -70,6 +76,9 @@ export default class BottomView extends Component {
             })
             .catch(error => console.log(error));
     }
+
+    //Main Render Function
+
     render() {
         return (
             <View style={{ flex: 1, marginBottom: 30 }} >
@@ -103,6 +112,8 @@ export default class BottomView extends Component {
         );
     }
 }
+
+//Styles
 
 const styles = StyleSheet.create({
     text: {

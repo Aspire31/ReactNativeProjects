@@ -9,13 +9,17 @@ export default class App extends PureComponent {
     this.state = {
     };
   }
-
   render() {
     return (
-      <View style = {{flex: 1}} >  
+      <View style = {{flex: 1}} > 
+        {/* Top Bar  */}
+       
         <View style={styles.topBar} >
           <TopView />
         </View>
+       
+        {/* Bottom Flatlist */}
+       
         <React.Fragment>
           <BottomView />
         </React.Fragment>

@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { View, Text, StatusBar, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StatusBar, StyleSheet } from 'react-native';
+
+//Main Function
 
 export const TopView = React.memo(function pureFunction() {
     return (
@@ -12,6 +14,8 @@ export const TopView = React.memo(function pureFunction() {
         </View>
     );
 })
+
+//Styles
 
 
 const styles = StyleSheet.create({
