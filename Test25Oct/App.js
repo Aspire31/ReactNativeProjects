@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 
   topBar:{
     height: 100,
+    height: 60,
   },
 
 })

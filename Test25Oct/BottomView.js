@@ -65,7 +65,7 @@ export default class BottomView extends Component {
     //API Hit Function
 
     getFunction = (key) => {
-        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=55bafd6cfa5d49d681938b7eec610228')
+        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=87c107dbf1f54871b7e6bfe0ef95b307')
             .then(response => {
                 // console.warn(response.data.articles)
                 const userData1 = response.data.articles;
@@ -88,7 +88,6 @@ export default class BottomView extends Component {
                         placeholder="Search For City Related News!"
                         style={styles.textInputStyle}
                         onChangeText={(text) => this.setState({ searchKey: text })}
-                        value={this.state.searchKey}
                         clearButtonMode='while-editing'
                         onPress={this.getFunction(this.state.searchKey)}
                         autoCorrect = {false}
