@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, FlatList, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import axios from 'axios';
 import { Linking } from 'react-native';
-import Icon from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/Ionicons';
+Icon.loadFont();
 
 export default class BottomView extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ export default class BottomView extends Component {
             <View style={styles.container}>
                 <Image
                     style={styles.imagestyle}
-                    source={{ uri: item.urlToImage ? item.urlToImage : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}
+                    source={ item.urlToImage == null ?  {uri:'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'} : {uri:item.urlToImage }}
                 />
                 <Text style={styles.dateStyle}>
                     Date: {item.publishedAt}
@@ -58,7 +59,7 @@ export default class BottomView extends Component {
     }
 
     getFunction = (key) => {
-        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=e8e7d159f006497db84fd2406a658249')
+        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=55bafd6cfa5d49d681938b7eec610228')
             .then(response => {
                 // console.warn(response.data.articles)
                 const userData1 = response.data.articles;
@@ -73,7 +74,7 @@ export default class BottomView extends Component {
         return (
             <View style={{ flex: 1, marginBottom: 30 }} >
                 <View>
-                    <Icon name = 'search' size = {30} color = '#d3d3d3' />
+                    <Icon name = "md-search" size = {30} color = '#d3d3d3' style={styles.iconPos}/>
                     <TextInput
                         placeholder="Search For City Related News!"
                         style={styles.textInputStyle}
@@ -140,12 +141,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: 'lightgray',
         borderWidth: 0.5,
-        shadowOpacity: 0.5,
+        shadowOpacity: 0.3,
         shadowColor: 'lightgray',
         height: 50,
-        paddingLeft: 10,
+        paddingLeft: 40,
         marginTop: 30,
-        backgroundColor: 'white',
         fontSize: 20,
     },
     imagestyle: {
@@ -163,6 +163,11 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'white',
         fontWeight: 'bold',
+    },
+    iconPos:{
+    position:'absolute', 
+    top:38, 
+    left: 30
     }
 })
 
