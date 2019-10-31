@@ -20,7 +20,7 @@ export default class ImagePickerClass extends Component {
 
   handlePicker = () =>{
     ImagePicker.openPicker({
-      width: 300,
+      width: 900,
       height: 400,
       cropping: true
     }).then(image => {
