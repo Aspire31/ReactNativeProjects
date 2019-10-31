@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { View, Text,Image, TouchableOpacity } from 'react-native';
+import { View,Image, TouchableOpacity } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
 export default class ImagePickerClass extends Component {
