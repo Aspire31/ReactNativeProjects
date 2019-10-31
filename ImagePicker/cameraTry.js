@@ -14,6 +14,7 @@ export default class ImagePickerClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        key:'',
       imageKey:'https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     };
   }
@@ -26,7 +27,7 @@ export default class ImagePickerClass extends Component {
       }).then(image => {
         // console.log(image);
         this.setState({
-            imageKey: image.path
+            imagekey: image.path
           })
       });
   }
