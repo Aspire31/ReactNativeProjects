@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Button } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import Icon from 'react-native-vector-icons/Ionicons'
+Icon.loadFont()
 
 import getAPI from '../ApiHit/Get.js'
 import postAPI from '../ApiHit/postAPI.js'
@@ -25,17 +27,7 @@ class HomeScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Home',
-    // headerStyle: {
-    //   backgroundColor: '#b0e0e6',
-    // },
-    // headerTitleStyle: {
-    //   fontWeight: 'bold',
-    //   color:'white',
-    //   fontSize:22
-    // },
   })
-
-
   render() {
     return (
       <View style={styles.mainView}>
@@ -43,7 +35,7 @@ class HomeScreen extends React.Component {
         <Text style={styles.info}>
           Click Any Button To View Different Projects!
         </Text>
-        <ScrollView style={{margin:15}} >
+        <ScrollView style={{ margin: 15 }} >
           <TouchableOpacity onPress={() => { this.props.navigation.push("APIHit"); }}>
             <View style={styles.buttonContainer} >
               <Text style={styles.buttonStyles} >
@@ -145,12 +137,28 @@ const styles = StyleSheet.create({
     borderColor: 'lightgray',
     margin: 10,
     alignItems: 'center',
+  },
+  iconPos: {
+    paddingRight: 20
   }
 })
 
+
 const AppNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
-  APIHit: { screen: getAPI, navigationOptions: { title: 'Axios API Hit' } },
+  APIHit: {
+    screen: getAPI,
+    navigationOptions: (navigation) => ({
+      title: 'Axios API Hit',
+      headerRight: () => (
+        <Button
+        onPress={() => navigation.navigate('postAPI')}
+        title="Info"
+        color="#fff"
+      />
+      )
+    })
+  },
   postAPI: { screen: postAPI, navigationOptions: { title: 'Sending Static Info' } },
   postAPI2: { screen: postAPI2, navigationOptions: { title: 'Sending Dynamic Info' } },
   component: { screen: ComponentsBasedUI, navigationOptions: { title: 'Gallery' } },
@@ -160,11 +168,11 @@ const AppNavigator = createStackNavigator({
   challenge: { screen: ChallengeScreen, navigationOptions: { title: 'Challenges' } },
   fame: { screen: HallOfFame, navigationOptions: { title: 'Hall Of Fame' } },
   search: { screen: SearchAPI, navigationOptions: { title: 'News Data' } },
-  picker:{screen: MainFile, navigationOptions: { title: 'Picker Projects' }},
-  changePicture:{screen: ChangePicture, navigationOptions: { title: 'Click & Change' }},
-  imageOnLoad:{screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' }},
-  multiPick:{screen: MultiPick, navigationOptions: { title: 'Picking Multiple' }},
-  onLoadFlatlist:{screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View'}}
+  picker: { screen: MainFile, navigationOptions: { title: 'Picker Projects' } },
+  changePicture: { screen: ChangePicture, navigationOptions: { title: 'Click & Change' } },
+  imageOnLoad: { screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' } },
+  multiPick: { screen: MultiPick, navigationOptions: { title: 'Picking Multiple' } },
+  onLoadFlatlist: { screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View' } }
 },
   {
     initialRouteName: 'Home',
@@ -177,6 +185,8 @@ const AppNavigator = createStackNavigator({
         fontWeight: 'bold',
         fontSize: 22,
       },
+      headerBackTitle: null,
+
     }
   }
 );

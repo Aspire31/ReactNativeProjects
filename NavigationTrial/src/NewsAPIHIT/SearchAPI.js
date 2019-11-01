@@ -15,7 +15,6 @@ export default class SearchAPI extends Component {
             searchKey: 'Noida'
         };
     }
-
     // To toggle the lines
 
     toggleNumberOfLines = (index) => {
@@ -65,7 +64,7 @@ export default class SearchAPI extends Component {
     //API Hit Function
 
     getFunction = (key) => {
-        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=87c107dbf1f54871b7e6bfe0ef95b307')
+        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=5d422f9184244435b31ba3e2be1d6c68')
             .then(response => {
                 const userData1 = response.data.articles;
                 this.setState({

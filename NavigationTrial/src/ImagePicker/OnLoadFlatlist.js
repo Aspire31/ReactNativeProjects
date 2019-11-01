@@ -23,11 +23,12 @@ export default class OnLoadFlatlist extends Component {
                 <Image
                     style={styles.imagestyle}
                     source={item.urlToImage == null ? require('/Users/appinventiv/Desktop/Alisha_RN/NavigationTrial/Images/none.jpeg') : { uri: item.urlToImage }}
+                    onProgress={()=>this.setState({ isLoaded: false })}
                     onLoad={() => this.setState({ isLoaded: true })}
                 />
                 {
                     !this.state.isLoaded &&
-                    <View style={{ position: 'absolute' }}>
+                    <View style={{ position: 'absolute',left: 0, right: 0, bottom: 0,top: 0}}>
                         <Image 
                         style={{height:100, width:100}}
                         source={{ uri: '/Users/appinventiv/Desktop/Alisha_RN/NavigationTrial/Images/grey.jpg' }}    
@@ -42,7 +43,7 @@ export default class OnLoadFlatlist extends Component {
     //API Hit Function
 
     getFunction = (key) => {
-        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=87c107dbf1f54871b7e6bfe0ef95b307')
+        axios.get('https://newsapi.org/v2/everything?q=' + key + '&apiKey=5d422f9184244435b31ba3e2be1d6c68')
             .then(response => {
                 // console.warn(response.data.articles)
                 const userData1 = response.data.articles;
