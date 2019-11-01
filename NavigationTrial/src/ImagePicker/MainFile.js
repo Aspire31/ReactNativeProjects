@@ -32,6 +32,14 @@ export default class MainFile extends Component {
             </View>
           </TouchableOpacity>
 
+          <TouchableOpacity onPress={() => { this.props.navigation.push('onLoadFlatlist'); }}>
+            <View style={styles.buttonContainer} >
+              <Text style={styles.buttonStyles} >
+                Images onLoad >
+          </Text>
+            </View>
+          </TouchableOpacity>
+
           </View>
     );
   }

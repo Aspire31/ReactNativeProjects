@@ -19,6 +19,7 @@ import MainFile from '../ImagePicker/MainFile.js'
 import ChangePicture from '../ImagePicker/ChangePicture.js'
 import ImageOnLoad from '../ImagePicker/ImageOnLoad.js'
 import MultiPick from '../ImagePicker/MultiPick.js'
+import OnLoadFlatlist from '../ImagePicker/OnLoadFlatlist.js'
 
 class HomeScreen extends React.Component {
 
@@ -162,7 +163,8 @@ const AppNavigator = createStackNavigator({
   picker:{screen: MainFile, navigationOptions: { title: 'Picker Projects' }},
   changePicture:{screen: ChangePicture, navigationOptions: { title: 'Click & Change' }},
   imageOnLoad:{screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' }},
-  multiPick:{screen: MultiPick, navigationOptions: { title: 'Picking Multiple' }}
+  multiPick:{screen: MultiPick, navigationOptions: { title: 'Picking Multiple' }},
+  onLoadFlatlist:{screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View'}}
 },
   {
     initialRouteName: 'Home',
