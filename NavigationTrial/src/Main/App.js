@@ -15,6 +15,11 @@ import ChallengeScreen from '../ChallengeScreen/ChallengeScreen.js'
 import HallOfFame from '../HallOfFame/HallOfFame.js'
 import SearchAPI from '../NewsAPIHIT/SearchAPI.js'
 
+import MainFile from '../ImagePicker/MainFile.js'
+import ChangePicture from '../ImagePicker/ChangePicture.js'
+import ImageOnLoad from '../ImagePicker/ImageOnLoad.js'
+import MultiPick from '../ImagePicker/MultiPick.js'
+
 class HomeScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
@@ -37,7 +42,7 @@ class HomeScreen extends React.Component {
         <Text style={styles.info}>
           Click Any Button To View Different Projects!
         </Text>
-        <ScrollView>
+        <ScrollView style={{margin:15}} >
           <TouchableOpacity onPress={() => { this.props.navigation.push("APIHit"); }}>
             <View style={styles.buttonContainer} >
               <Text style={styles.buttonStyles} >
@@ -101,6 +106,15 @@ class HomeScreen extends React.Component {
           </Text>
             </View>
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { this.props.navigation.push("picker"); }}>
+            <View style={styles.buttonContainer} >
+              <Text style={styles.buttonStyles} >
+                Different Picker Projects >
+          </Text>
+            </View>
+          </TouchableOpacity>
+
         </ScrollView>
       </View>
     );
@@ -144,7 +158,11 @@ const AppNavigator = createStackNavigator({
   validation: { screen: ValidationForm, navigationOptions: { title: 'Validation Form' } },
   challenge: { screen: ChallengeScreen, navigationOptions: { title: 'Challenges' } },
   fame: { screen: HallOfFame, navigationOptions: { title: 'Hall Of Fame' } },
-  search: { screen: SearchAPI, navigationOptions: { title: 'News Data' } }
+  search: { screen: SearchAPI, navigationOptions: { title: 'News Data' } },
+  picker:{screen: MainFile, navigationOptions: { title: 'Picker Projects' }},
+  changePicture:{screen: ChangePicture, navigationOptions: { title: 'Click & Change' }},
+  imageOnLoad:{screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' }},
+  multiPick:{screen: MultiPick, navigationOptions: { title: 'Picking Multiple' }}
 },
   {
     initialRouteName: 'Home',
