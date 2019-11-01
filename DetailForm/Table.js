@@ -4,7 +4,6 @@ import {View, Text, FlatList} from 'react-native'
 export default class Table extends Component{
 
     renderItems(rowData){
-        // console.warn("item", rowData)
         return(
             <View>
              <Text>{rowData.item.firstname}</Text>
@@ -18,17 +17,12 @@ export default class Table extends Component{
     }
 
     render(){
-        // console.warn("data", this.props.item)
         return(
-            
-            // <View style = {{justifyContent: "center", flexDirection: 'column', height: 200, width: '90%'}}>
             <FlatList
-                // style={{height: 200, width: 200, backgroundColor: '#ccc'}}
             data={this.props.item}
             renderItem={this.renderItems}
-            keyExtractor = {(item,index) => index.toString() }
+            keyExtractor = {(index) => index.toString() }
             />
-            //  </View>
             )
         }
     }

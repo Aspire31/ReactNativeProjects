@@ -95,12 +95,6 @@ export default class Form extends Component {
                     <View style={{ flex: 6 }}>
                         <StatusBar backgroundColor="black" barStyle="light-content" />
 
-                        <View style={styles.topBar}>
-                            <Text style={styles.titleText}>
-                                {'\n'}{'\n'}{this.state.titleText}
-                            </Text>
-                        </View>
-
                         <View style={{ flex: 6, backgroundColor: 'white', paddingLeft: 20 }}>
                             <View style={styles.imputView}>
                                 <Text style={styles.baseText}> First Name</Text>
@@ -128,25 +122,6 @@ export default class Form extends Component {
                                     clearButtonMode='while-editing'
                                     style={styles.textfield} />
                             </View>
-
-                            <View style={styles.imputView}>
-                                <Text style={styles.baseText}> BirthDate</Text>
-                                <TextInput placeholder="Your Special Day"
-                                    onChangeText={(text) => this.setState({ birthdate: text })}
-                                    value={this.state.birthdate}
-                                    clearButtonMode='while-editing'
-                                    style={styles.textfield} />
-                            </View>
-
-                            <View style={styles.imputView}>
-                                <Text style={styles.baseText}> Password</Text>
-                                <TextInput placeholder="Please Enter The Password."
-                                    onChangeText={(text) => this.setState({ password: text })}
-                                    value={this.state.password}
-                                    clearButtonMode='while-editing'
-                                    style={styles.textfield} />
-                            </View>
-
                             <View style={styles.buttonView}>
                                 <TouchableOpacity style={styles.buttonBackground}
                                     //   onPress = {this.submitAndClear}
@@ -161,11 +136,6 @@ export default class Form extends Component {
                         <View style={styles.DataView}>
                             <Table item={this.state.empRecord} />
                         </View>
-                        {/* <View style = {styles.DataView}>
-                                <Text style = {styles.ViewedData}>
-                                    {this.state.record}
-                                </Text>    
-                            </View>  */}
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -185,7 +155,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     buttonBackground: {
-        backgroundColor: 'green',
+        backgroundColor: 'powderblue',
         height: 50,
         width: 300,
         borderRadius: 30,
@@ -205,7 +175,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         paddingTop: 40,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginLeft: -25
     },
     topBar: {
         flex: 1,

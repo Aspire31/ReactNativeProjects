@@ -8,6 +8,10 @@ import postAPI from '../ApiHit/postAPI.js'
 import postAPI2 from '../ApiHit/postAPI2.js'
 
 import ComponentsBasedUI from '../ComponentBasedUI/mainComponent.js'
+import DemoSignUpForm from '../SimpleSignUpForm/DemoSignUpForm.js'
+import DetailForm from '../DetailForm/DetailForm.js'
+import ValidationForm from '../ValidationForm/ValidationForm.js'
+import ChallengeScreen from '../ChallengeScreen/ChallengeScreen.js'
 
 class HomeScreen extends React.Component {
 
@@ -48,6 +52,39 @@ class HomeScreen extends React.Component {
           </View>
         </TouchableOpacity>
 
+        <TouchableOpacity onPress={() => { this.props.navigation.push("demo"); }}>
+          <View style={styles.buttonContainer} >
+            <Text style={styles.buttonStyles} >
+            Simple Sign Up Form >
+          </Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => { this.props.navigation.push("detail"); }}>
+          <View style={styles.buttonContainer} >
+            <Text style={styles.buttonStyles} >
+            Detail Form >
+          </Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => { this.props.navigation.push("validation"); }}>
+          <View style={styles.buttonContainer} >
+            <Text style={styles.buttonStyles} >
+            Form With Validation >
+          </Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => { this.props.navigation.push("challenge"); }}>
+          <View style={styles.buttonContainer} >
+            <Text style={styles.buttonStyles} >
+            Challenge Screen UI >
+          </Text>
+          </View>
+        </TouchableOpacity>
+
+
       </View>
     );
   }
@@ -81,10 +118,14 @@ const styles = StyleSheet.create({
 
 const AppNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
-  APIHit: { screen: getAPI },
-  postAPI: { screen: postAPI },
-  postAPI2: { screen: postAPI2 },
-  component: {screen: ComponentsBasedUI},
+  APIHit: { screen: getAPI, navigationOptions: { title: 'Axios API Hit' } },
+  postAPI: { screen: postAPI, navigationOptions: { title: 'Sending Static Info' } },
+  postAPI2: { screen: postAPI2, navigationOptions: { title: 'Sending Dynamic Info' } },
+  component: {screen: ComponentsBasedUI, navigationOptions: { title: 'Gallery' }},
+  demo:{screen: DemoSignUpForm, navigationOptions: { title: 'Sign Up Form' }},
+  detail:{screen:DetailForm, navigationOptions: { title: 'Detail Form' }},
+  validation:{screen: ValidationForm , navigationOptions: { title: 'Validation Form' }},
+  challenge:{screen: ChallengeScreen, navigationOptions: { title: 'Challenges' }}
 },
   {
     initialRouteName: 'Home',
