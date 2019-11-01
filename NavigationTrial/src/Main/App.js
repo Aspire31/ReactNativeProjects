@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -148,19 +148,37 @@ const AppNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
   APIHit: {
     screen: getAPI,
-    navigationOptions: (navigation) => ({
+    navigationOptions: ({ navigation }) => ({
       title: 'Axios API Hit',
       headerRight: () => (
-        <Button
-        onPress={() => navigation.navigate('postAPI')}
-        title="Info"
-        color="#fff"
-      />
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
+          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
+        </TouchableOpacity>
       )
     })
   },
-  postAPI: { screen: postAPI, navigationOptions: { title: 'Sending Static Info' } },
-  postAPI2: { screen: postAPI2, navigationOptions: { title: 'Sending Dynamic Info' } },
+  postAPI: {
+    screen: postAPI,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Sending Static Info',
+      headerRight: () => (
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
+          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
+        </TouchableOpacity>
+      )
+    })
+  },
+  postAPI2: {
+    screen: postAPI2,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Sending Dynamic Info',
+      headerRight: () => (
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
+          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
+        </TouchableOpacity>
+      )
+    })
+  },
   component: { screen: ComponentsBasedUI, navigationOptions: { title: 'Gallery' } },
   demo: { screen: DemoSignUpForm, navigationOptions: { title: 'Sign Up Form' } },
   detail: { screen: DetailForm, navigationOptions: { title: 'Detail Form' } },
@@ -186,6 +204,12 @@ const AppNavigator = createStackNavigator({
         fontSize: 22,
       },
       headerBackTitle: null,
+
+      headerRight: () => (
+        <TouchableOpacity onPress={() => alert('This is a button!')} >
+          <Icon name="ios-information-circle-outline" size={30} color="white" style={styles.iconPos} />
+        </TouchableOpacity>
+      )
 
     }
   }
