@@ -34,35 +34,35 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
     },
-    votesText: {
-        color: 'black',
-        fontSize: 14,
-        paddingTop: 5,
-        paddingBottom: 5
-    },
-    votesView: {
-        backgroundColor: 'white',
-        borderRadius: 10,
-        alignItems: 'center',
-        flexDirection: 'row',
-        paddingLeft: 10,
-        marginRight: 5
-    },
-    circleView: {
-        borderRadius: 7,
-        height: 15,
-        width: 15,
-        backgroundColor: "#ff9900",
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    plusText:{
-        color: 'white',
-        paddingLeft:3,
-        fontWeight: 'bold',
-        marginRight:4,
-        paddingBottom:18
-    }
+    // votesText: {
+    //     color: 'black',
+    //     fontSize: 14,
+    //     paddingTop: 5,
+    //     paddingBottom: 5
+    // },
+    // votesView: {
+    //     backgroundColor: 'white',
+    //     borderRadius: 10,
+    //     alignItems: 'center',
+    //     flexDirection: 'row',
+    //     paddingLeft: 10,
+    //     marginRight: 5
+    // },
+    // circleView: {
+    //     borderRadius: 7,
+    //     height: 15,
+    //     width: 15,
+    //     backgroundColor: "#ff9900",
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    // },
+    // plusText:{
+    //     color: 'white',
+    //     paddingLeft:3,
+    //     fontWeight: 'bold',
+    //     marginRight:4,
+    //     paddingBottom:18
+    // }
 })
 
 export default TopView;

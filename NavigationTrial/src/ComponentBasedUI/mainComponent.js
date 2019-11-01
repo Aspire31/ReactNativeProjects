@@ -4,7 +4,6 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
-import TopView from './topView'
 import ImageList from './imagesList'
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -15,10 +14,6 @@ export default class ComponentsBasedUI extends React.Component {
   render() {
     return (
       <View style={styles.mainView}>
-        {/* <View style={styles.headerView}>
-          <TopView />
-        </View> */}
-
         <View style={styles.midView}>
           <ImageList />
         </View>
