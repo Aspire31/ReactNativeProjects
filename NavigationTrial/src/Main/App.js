@@ -114,7 +114,7 @@ class HomeScreen extends React.Component {
           <TouchableOpacity onPress={() => { this.props.navigation.push("editMain"); }}>
             <View style={styles.buttonContainer} >
               <Text style={styles.buttonStyles} >
-                Edit Navigation Trial >
+                Edit & Update (via Navigation) >
           </Text>
             </View>
           </TouchableOpacity>
