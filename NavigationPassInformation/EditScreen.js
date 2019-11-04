@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput,Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image,Alert,Linking } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+// import {} from 'react-native';
+
+import { check, PERMISSIONS, RESULTS, request } from 'react-native-permissions';
 
 export default class EditScreen extends Component {
     constructor(props) {
@@ -8,12 +12,54 @@ export default class EditScreen extends Component {
         this.state = {
             first_Name: this.props.navigation.state.params.firstName,
             last_Name: this.props.navigation.state.params.lastName,
-            url: ''
+            url: this.props.navigation.state.params.image
         };
     }
     //   componentWillMount(){
     //       console.log('data',this.props)
     //   }
+
+    handleImageRequest = () => {
+        check(PERMISSIONS.IOS.PHOTO_LIBRARY)
+          .then(result => {
+            switch (result) {
+              case RESULTS.UNAVAILABLE:
+                console.log(
+                  'This feature is not available (on this device / in this context)',
+                );
+                break;
+              case RESULTS.DENIED:
+                console.log(
+                  'The permission has not been requested / is denied but requestable',
+                );
+                request(PERMISSIONS.IOS.PHOTO_LIBRARY).then(result =>{
+                    this.handlePicker();
+                })
+                break;
+              case RESULTS.GRANTED:
+                  this.handlePicker();
+                console.log('The permission is granted');
+                break;
+              case RESULTS.BLOCKED:
+                console.log('The permission is denied and not requestable anymore');
+                Alert.alert('Permission to access the photo library has been denied, please allow it from settings.', null,
+                [
+                    {
+                        text: 'OK',
+                        onPress: () => { Linking.openSettings()}
+                    },
+                    {
+                        text: 'Cancel',
+                        onPress:() => {console.log('Denied request')}
+                    }
+                ])
+                break;
+            }
+          })
+          .catch(error => {
+            console.log("error", error)
+          });
+      }
 
     goBack = () => {
         return (
@@ -32,34 +78,41 @@ export default class EditScreen extends Component {
         }
     }
 
-    handlePicker = () =>{
+    handlePicker = () => {
         ImagePicker.openPicker({
-          width: 400,
-          height: 400,
-          cropping: true
+            width: 400,
+            height: 400,
+            cropping: true
         }).then(image => {
-          // console.log(image);
-          this.setState({
-            url: image.path
-          })
+            // console.log(image);
+            this.setState({
+                url: image.path
+            })
         });
-      }
+    }
 
     render() {
         const { firstName, lastName } = this.props.navigation.state.params;
         return (
-            <View style={styles.mainView} >
+            <KeyboardAwareScrollView
+                // style={{ backgroundColor: '#4c69a5' }}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                contentContainerStyle={styles.container}
+                scrollEnabled={false}
+            >
                 <View style={{ flexDirection: 'column' }} >
 
-                    <TouchableOpacity style={styles.imageButton} onPress = {this.handlePicker} >
+                    <TouchableOpacity style={styles.imageButton} onPress={this.handleImageRequest} >
                         <Text style={styles.imageText} >
                             Select Image
                         </Text>
-                        <Image 
-                        style={{height: 200, width:200}}
-                        source = {{uri: this.state.url }}
-                        />
                     </TouchableOpacity>
+                    <View style={{ alignItems: 'center' }}>
+                        <Image
+                            style={{ height: 200, width: 200, borderRadius: 20, marginBottom: 20 }}
+                            source={{ uri: this.state.url }}
+                        />
+                    </View>
 
                     <View style={{ flexDirection: 'row' }} >
                         <Text style={styles.text} > First Name </Text>
@@ -84,6 +137,7 @@ export default class EditScreen extends Component {
                             onSubmitEditing={() => this.submitInput(2)}
                             style={styles.textInput}
                             returnKeyType='done'
+                        // autoCorrect= {false}
                         />
                     </View>
 
@@ -96,7 +150,7 @@ export default class EditScreen extends Component {
                     </View>
 
                 </View>
-            </View>
+            </KeyboardAwareScrollView>
         );
     }
 }
@@ -149,6 +203,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         padding: 20,
         color: 'powderblue'
+    },
+    container: {
+
     }
 
 })
