@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 
 export default class MainScreen extends Component {
     constructor(props) {
@@ -35,29 +35,33 @@ export default class MainScreen extends Component {
 
     render() {
         return (
-                <View style={styles.mainView}>
-                <View style={styles.container}>
-                    <Image
-                        style={styles.imageStyle}
-                        source={{ uri: this.state.url }}
-                    />
-                    <TouchableOpacity style={styles.button}
-                        onPress={this.handleOnPress}>
-                        <Text style={styles.buttonText} >
-                            Edit
-                        </Text>
-                    </TouchableOpacity>
-                    <View style={{flexDirection: 'row' }} >
-                        <Text style={styles.text} numberOfLines = {null} >
-                            {this.state.first_name}
-                        </Text>
-                        <Text style={styles.text2} numberOfLines = {null} >
-                            {this.state.last_name}
-                        </Text>
-                    </View>
+            // <ImageBackground source={{uri:'https://image.shutterstock.com/image-photo/autumn-background-sunflowers-on-wooden-260nw-475848904.jpg'}}
+            //     style={{width: null, height: null }}>
 
+                <View style={styles.mainView}>
+                    <View style={styles.container}>
+                        <Image
+                            style={styles.imageStyle}
+                            source={{ uri: this.state.url }}
+                        />
+                        <TouchableOpacity style={styles.button}
+                            onPress={this.handleOnPress}>
+                            <Text style={styles.buttonText} >
+                                Edit
+                        </Text>
+                        </TouchableOpacity>
+                        <View style={{ flexDirection: 'row' }} >
+                            <Text style={styles.text} numberOfLines={null} >
+                                {this.state.first_name}
+                            </Text>
+                            <Text style={styles.text2} numberOfLines={null} >
+                                {this.state.last_name}
+                            </Text>
+                        </View>
+
+                    </View>
                 </View>
-            </View>
+            // </ImageBackground>
         );
     }
 }
@@ -72,19 +76,19 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         // paddingLeft:40,
-        paddingTop:20,
+        paddingTop: 20,
         color: 'white',
-        width:100
+        width: 100
     },
-    text2:{
+    text2: {
         fontSize: 22,
         fontWeight: 'bold',
         // paddingLeft:10,
-        paddingTop:20,
+        paddingTop: 20,
         color: 'white',
         // flexWrap: 'wrap',
         // flexShrink:1,
-        width:100
+        width: 100
     },
     container: {
         backgroundColor: 'powderblue',

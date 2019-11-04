@@ -46,7 +46,7 @@ export default class EditScreen extends Component {
                 [
                     {
                         text: 'OK',
-                        onPress: () => { Linking.openSettings()}
+                        onPress: () => { Linking.openSettings}
                     },
                     {
                         text: 'Cancel',
