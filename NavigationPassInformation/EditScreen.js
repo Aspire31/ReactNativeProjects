@@ -1,0 +1,154 @@
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput,Image } from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
+
+export default class EditScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            first_Name: this.props.navigation.state.params.firstName,
+            last_Name: this.props.navigation.state.params.lastName,
+            url: ''
+        };
+    }
+    //   componentWillMount(){
+    //       console.log('data',this.props)
+    //   }
+
+    goBack = () => {
+        return (
+            this.props.navigation.state.params.update(this.state.first_Name, this.state.last_Name, this.state.url),
+            this.props.navigation.goBack()
+        )
+    }
+    submitInput = (type) => {
+        switch (type) {
+            case 1:
+                this.input2.focus();
+                break;
+            case 2:
+                this.goBack();
+                break;
+        }
+    }
+
+    handlePicker = () =>{
+        ImagePicker.openPicker({
+          width: 400,
+          height: 400,
+          cropping: true
+        }).then(image => {
+          // console.log(image);
+          this.setState({
+            url: image.path
+          })
+        });
+      }
+
+    render() {
+        const { firstName, lastName } = this.props.navigation.state.params;
+        return (
+            <View style={styles.mainView} >
+                <View style={{ flexDirection: 'column' }} >
+
+                    <TouchableOpacity style={styles.imageButton} onPress = {this.handlePicker} >
+                        <Text style={styles.imageText} >
+                            Select Image
+                        </Text>
+                        <Image 
+                        style={{height: 200, width:200}}
+                        source = {{uri: this.state.url }}
+                        />
+                    </TouchableOpacity>
+
+                    <View style={{ flexDirection: 'row' }} >
+                        <Text style={styles.text} > First Name </Text>
+                        <TextInput
+                            defaultValue={firstName}
+                            clearButtonMode='while-editing'
+                            onChangeText={(text) => this.setState({ first_Name: text })}
+                            style={styles.textInput}
+                            ref={ref => this.input1 = ref} //in input1, we get ref
+                            onSubmitEditing={() => this.submitInput(1)}
+                            returnKeyType='next'
+                        />
+                    </View>
+
+                    <View style={{ flexDirection: 'row' }} >
+                        <Text style={styles.text} > Last Name </Text>
+                        <TextInput
+                            defaultValue={lastName}
+                            clearButtonMode='while-editing'
+                            onChangeText={(text) => this.setState({ last_Name: text })}
+                            ref={ref => this.input2 = ref}
+                            onSubmitEditing={() => this.submitInput(2)}
+                            style={styles.textInput}
+                            returnKeyType='done'
+                        />
+                    </View>
+
+                    <View>
+                        <TouchableOpacity style={styles.button} onPress={this.goBack} >
+                            <Text style={styles.buttontext} >
+                                Save
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    mainView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        padding: 20,
+        color: 'powderblue'
+    },
+    button: {
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'powderblue'
+    },
+    buttontext: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        padding: 20,
+        color: 'white'
+    },
+    textInput: {
+        backgroundColor: 'white',
+        borderRadius: 20,
+        borderColor: 'lightgray',
+        borderWidth: 0.5,
+        paddingLeft: 10,
+        height: 45,
+        marginTop: 10,
+        width: 200,
+        fontSize: 20
+    },
+    imageButton: {
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: 'lightgray',
+        margin: 20
+    },
+    imageText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        padding: 20,
+        color: 'powderblue'
+    }
+
+})
