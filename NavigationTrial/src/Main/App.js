@@ -23,6 +23,9 @@ import ImageOnLoad from '../ImagePicker/ImageOnLoad.js'
 import MultiPick from '../ImagePicker/MultiPick.js'
 import OnLoadFlatlist from '../ImagePicker/OnLoadFlatlist.js'
 
+import MainScreen from '../EditNavigation/MainScreen.js'
+import EditScreen from '../EditNavigation/EditScreen.js'
+
 class HomeScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
@@ -104,6 +107,14 @@ class HomeScreen extends React.Component {
             <View style={styles.buttonContainer} >
               <Text style={styles.buttonStyles} >
                 Different Picker Projects >
+          </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { this.props.navigation.push("editMain"); }}>
+            <View style={styles.buttonContainer} >
+              <Text style={styles.buttonStyles} >
+                Edit Navigation Trial >
           </Text>
             </View>
           </TouchableOpacity>
@@ -190,7 +201,9 @@ const AppNavigator = createStackNavigator({
   changePicture: { screen: ChangePicture, navigationOptions: { title: 'Click & Change' } },
   imageOnLoad: { screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' } },
   multiPick: { screen: MultiPick, navigationOptions: { title: 'Picking Multiple' } },
-  onLoadFlatlist: { screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View' } }
+  onLoadFlatlist: { screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View' } },
+  editMain:{screen:MainScreen, navigationOptions: { title: 'Main Screen' }},
+  editScreen:{screen:EditScreen, navigationOptions: { title: 'Edit Screen' }},
 },
   {
     initialRouteName: 'Home',
