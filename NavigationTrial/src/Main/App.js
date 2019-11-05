@@ -198,7 +198,7 @@ const AppNavigator = createStackNavigator({
   fame: { screen: HallOfFame, navigationOptions: { title: 'Hall Of Fame' } },
   search: { screen: SearchAPI, navigationOptions: { title: 'News Data' } },
   picker: { screen: MainFile, navigationOptions: { title: 'Picker Projects' } },
-  changePicture: { screen: ChangePicture, navigationOptions: { title: 'Click & Change' } },
+  changePicture: { screen: ChangePicture, navigationOptions: { title: 'Upload Picture' } },
   imageOnLoad: { screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' } },
   multiPick: { screen: MultiPick, navigationOptions: { title: 'Picking Multiple' } },
   onLoadFlatlist: { screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View' } },

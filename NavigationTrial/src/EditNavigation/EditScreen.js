@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image,Alert,Linking } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image,Alert,Linking, Platform } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 // import {} from 'react-native';
@@ -20,7 +20,8 @@ export default class EditScreen extends Component {
     //   }
 
     handleImageRequest = () => {
-        check(PERMISSIONS.IOS.PHOTO_LIBRARY)
+        const permission = Platform.OS == 'ios' ? PERMISSIONS.IOS.PHOTO_LIBRARY : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE
+        check(permission)
           .then(result => {
             switch (result) {
               case RESULTS.UNAVAILABLE:
@@ -32,7 +33,7 @@ export default class EditScreen extends Component {
                 console.log(
                   'The permission has not been requested / is denied but requestable',
                 );
-                request(PERMISSIONS.IOS.PHOTO_LIBRARY).then(result =>{
+                request(permission).then(result =>{
                     this.handlePicker();
                 })
                 break;

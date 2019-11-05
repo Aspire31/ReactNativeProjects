@@ -11,7 +11,7 @@ export default class MainFile extends Component {
           <TouchableOpacity onPress={() => { this.props.navigation.push("changePicture"); }}>
             <View style={styles.buttonContainer} >
               <Text style={styles.buttonStyles} >
-                Change Picture >
+                Upload Picture to S3 >
           </Text>
             </View>
           </TouchableOpacity>
