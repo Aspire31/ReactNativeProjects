@@ -16,4 +16,9 @@ export default StyleSheet.create({
     margin: 10,
     alignItems: 'center',
   },
+  text:{
+    fontSize:22,
+    color:'powderblue',
+    fontWeight:'bold'
+  }
 })

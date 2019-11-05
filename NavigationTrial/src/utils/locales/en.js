@@ -1,3 +1,4 @@
 export default {
-  hello: "Hello"
+  hello: "Hello",
+  quote: 'You are your own limit'
 };

@@ -32,6 +32,11 @@ class HomeScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Home',
+    headerRight: () => (
+      <TouchableOpacity onPress={() => alert('This is a button!')} >
+        <Icon name="ios-information-circle-outline" size={30} color="white" style={styles.iconPos} />
+      </TouchableOpacity>
+    )
   })
   render() {
     return (
@@ -152,39 +157,9 @@ const styles = StyleSheet.create({
 
 const AppNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
-  APIHit: {
-    screen: getAPI,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Axios API Hit',
-      headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
-          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
-        </TouchableOpacity>
-      )
-    })
-  },
-  postAPI: {
-    screen: postAPI,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Sending Static Info',
-      headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
-          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
-        </TouchableOpacity>
-      )
-    })
-  },
-  postAPI2: {
-    screen: postAPI2,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Sending Dynamic Info',
-      headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
-          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
-        </TouchableOpacity>
-      )
-    })
-  },
+  APIHit: {screen: getAPI,navigationOptions: { title: 'Axios API Hit' }},
+  postAPI: { screen: postAPI, navigationOptions: { title: 'Sending Static Info' } },
+  postAPI2: { screen: postAPI2, navigationOptions: { title: 'Sending Dynamic Info' } },
   component: { screen: ComponentsBasedUI, navigationOptions: { title: 'Gallery' } },
   demo: { screen: DemoSignUpForm, navigationOptions: { title: 'Sign Up Form' } },
   detail: { screen: DetailForm, navigationOptions: { title: 'Detail Form' } },
@@ -197,13 +172,13 @@ const AppNavigator = createStackNavigator({
   imageOnLoad: { screen: ImageOnLoad, navigationOptions: { title: 'OnLoad Blur Focus' } },
   multiPick: { screen: MultiPick, navigationOptions: { title: 'Picking Multiple' } },
   onLoadFlatlist: { screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View' } },
-  editMain:{screen:MainScreen, navigationOptions: { title: 'Main Screen' }},
-  editScreen:{screen:EditScreen, navigationOptions: { title: 'Edit Screen' }},
-  local:{screen:localeEG, navigationOptions: { title: 'Locale Example' }},
+  editMain: { screen: MainScreen, navigationOptions: { title: 'Main Screen' } },
+  editScreen: { screen: EditScreen, navigationOptions: { title: 'Edit Screen' } },
+  local: { screen: localeEG, navigationOptions: { title: 'Locale Example' } },
 },
   {
     initialRouteName: 'Home',
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: '#b0e0e6',
       },
@@ -213,14 +188,13 @@ const AppNavigator = createStackNavigator({
         fontSize: 22,
       },
       headerBackTitle: null,
-
       headerRight: () => (
-        <TouchableOpacity onPress={() => alert('This is a button!')} >
-          <Icon name="ios-information-circle-outline" size={30} color="white" style={styles.iconPos} />
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} >
+          <Icon name="md-home" size={30} color="white" style={styles.iconPos} />
         </TouchableOpacity>
       )
 
-    }
+    })
   }
 );
 
