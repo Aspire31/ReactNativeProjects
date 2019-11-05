@@ -45,6 +45,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* NavigationTrialTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTrialTests.m; sourceTree = "<group>"; };
 		06BEC47CFFD62DF0C1311FD4 /* Pods-NavigationTrial-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationTrial-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-NavigationTrial-tvOSTests/Pods-NavigationTrial-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C427D682371A14B00D51FB5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* NavigationTrial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationTrial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NavigationTrial/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = NavigationTrial/AppDelegate.m; sourceTree = "<group>"; };
@@ -194,7 +195,6 @@
 				2C8C06D1E79CDF909588135B /* Pods-NavigationTrialTests.debug.xcconfig */,
 				CD741E760154D2F3BE131E9A /* Pods-NavigationTrialTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -309,8 +309,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -623,6 +625,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				13B07FB21A68108700A75B9A /* Base */,
+				0C427D682371A14B00D51FB5 /* fr */,
 			);
 			name = LaunchScreen.xib;
 			path = NavigationTrial;

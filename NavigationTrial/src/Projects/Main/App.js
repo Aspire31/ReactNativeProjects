@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, StatusBar, ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import style from '../../Components/style.js'
 import Icon from 'react-native-vector-icons/Ionicons'
 Icon.loadFont()
 
@@ -25,6 +26,7 @@ import OnLoadFlatlist from '../ImagePicker/OnLoadFlatlist.js'
 
 import MainScreen from '../EditNavigation/MainScreen.js'
 import EditScreen from '../EditNavigation/EditScreen.js'
+import localeEG from '../LocaleExample/localeEG.js'
 
 class HomeScreen extends React.Component {
 
@@ -40,81 +42,89 @@ class HomeScreen extends React.Component {
         </Text>
         <ScrollView style={{ margin: 15 }} >
           <TouchableOpacity onPress={() => { this.props.navigation.push("APIHit"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 API Trials >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("component"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Component Based UI >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("demo"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Simple Sign Up Form >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("detail"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Detail Form >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("validation"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Form With Validation >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("challenge"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Challenge Screen UI >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("fame"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Hall Of Fame UI >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("search"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 News Search API >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("picker"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Different Picker Projects >
           </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { this.props.navigation.push("editMain"); }}>
-            <View style={styles.buttonContainer} >
-              <Text style={styles.buttonStyles} >
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
                 Edit & Update (via Navigation) >
+          </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { this.props.navigation.push("local"); }}>
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
+                Example of Locale >
           </Text>
             </View>
           </TouchableOpacity>
@@ -133,21 +143,6 @@ const styles = StyleSheet.create({
   info: {
     fontWeight: 'bold',
     fontSize: 22,
-  },
-  buttonStyles: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    padding: 15,
-    color: '#205c64'
-  },
-  buttonContainer: {
-    justifyContent: 'center',
-    backgroundColor: '#b0e0e6',
-    borderRadius: 20,
-    borderWidth: 0.5,
-    borderColor: 'lightgray',
-    margin: 10,
-    alignItems: 'center',
   },
   iconPos: {
     paddingRight: 20
@@ -204,6 +199,7 @@ const AppNavigator = createStackNavigator({
   onLoadFlatlist: { screen: OnLoadFlatlist, navigationOptions: { title: 'Image onLoad View' } },
   editMain:{screen:MainScreen, navigationOptions: { title: 'Main Screen' }},
   editScreen:{screen:EditScreen, navigationOptions: { title: 'Edit Screen' }},
+  local:{screen:localeEG, navigationOptions: { title: 'Locale Example' }},
 },
   {
     initialRouteName: 'Home',
