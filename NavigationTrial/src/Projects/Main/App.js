@@ -28,6 +28,12 @@ import MainScreen from '../EditNavigation/MainScreen.js'
 import EditScreen from '../EditNavigation/EditScreen.js'
 import localeEG from '../LocaleExample/localeEG.js'
 
+import SplashScreen from '../Data Persistence/SplashScreen'
+import Login from '../Data Persistence/Login'
+import SignUp from '../Data Persistence/SignUp'
+import SignDashboard from '../Data Persistence/SignDashboard'
+import LoginDashboard from '../Data Persistence/LoginDashboard'
+
 class HomeScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
@@ -38,6 +44,7 @@ class HomeScreen extends React.Component {
       </TouchableOpacity>
     )
   })
+
   render() {
     return (
       <View style={styles.mainView}>
@@ -134,6 +141,14 @@ class HomeScreen extends React.Component {
             </View>
           </TouchableOpacity>
 
+          <TouchableOpacity onPress={() => { this.props.navigation.push("splash"); }}>
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
+                Data Persistence >
+          </Text>
+            </View>
+          </TouchableOpacity>
+
         </ScrollView>
       </View>
     );
@@ -157,7 +172,7 @@ const styles = StyleSheet.create({
 
 const AppNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
-  APIHit: {screen: getAPI,navigationOptions: { title: 'Axios API Hit' }},
+  APIHit: { screen: getAPI, navigationOptions: { title: 'Axios API Hit' } },
   postAPI: { screen: postAPI, navigationOptions: { title: 'Sending Static Info' } },
   postAPI2: { screen: postAPI2, navigationOptions: { title: 'Sending Dynamic Info' } },
   component: { screen: ComponentsBasedUI, navigationOptions: { title: 'Gallery' } },
@@ -175,6 +190,11 @@ const AppNavigator = createStackNavigator({
   editMain: { screen: MainScreen, navigationOptions: { title: 'Main Screen' } },
   editScreen: { screen: EditScreen, navigationOptions: { title: 'Edit Screen' } },
   local: { screen: localeEG, navigationOptions: { title: 'Locale Example' } },
+  splash: { screen: SplashScreen, navigationOptions: {  header: null} },
+  login: { screen: Login, navigationOptions: { title: 'Login' } },
+  signUp: { screen: SignUp, navigationOptions: { title: 'Sign Up' } },
+  loginDashboard: { screen: LoginDashboard, navigationOptions: { title: 'Your Dashboard' } },
+  signDashboard: { screen: SignDashboard, navigationOptions: { title: 'Your Dashboard' } },
 },
   {
     initialRouteName: 'Home',

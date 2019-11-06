@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, Text, StyleSheet, ScrollView } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar'
 
 import commonMethods from '../../Components/commonMethods.js';
@@ -10,12 +10,14 @@ export default class ImagePickerClass extends Component {
     this.state = {
       imageKey: 'https://www.clipartwiki.com/clipimg/detail/114-1141760_cute-kawaii-pikachu-ballon-pokemon-no-tiny.png',
       isLoaded: 0,
-      toUpload: false
+      toUpload: false,
+      response: '',
+      location: ''
     };
   }
 
   uploadImage = () => {
-    
+
     this.setState({
       toUpload: true
     });
@@ -24,50 +26,72 @@ export default class ImagePickerClass extends Component {
       console.log(response)
       this.setState({
         isLoaded: 0,
-        toUpload: false
+        toUpload: false,
+        response: response
       })
     }, (loadPercent) => {
       this.setState({
         isLoaded: loadPercent
       })
-  })
-}
-
-handlePicker = () => {
-  commonMethods.imagePicker((val) => {
-    this.setState({
-      imageKey: val
     })
-  })
-}
+  }
 
-render() {
-  return (
-    <View style={{ justifyContent: 'center', alignItems: 'center' }} >
+  downloadImage = (response) => {
+    return (
+      this.setState({
+        location: response.postResponse.location
+      })
+    )
+  }
 
-      <View style={styles.container}>
+  handlePicker = () => {
+    commonMethods.imagePicker((val) => {
+      this.setState({
+        imageKey: val
+      })
+    })
+  }
 
-        <TouchableOpacity onPress={this.handlePicker} style={styles.button} >
-          <Text style={styles.buttontext} > Pick an Image </Text>
-        </TouchableOpacity>
+  render() {
+    return (
+      <ScrollView>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }} >
 
-        <Image
-          style={styles.image}
-          source={{ uri: this.state.imageKey }}
-        />
-      </View>
+          <View style={styles.container}>
 
-      {(this.state.toUpload && this.state.imageKey != '') && (
-        <ProgressBar progress={this.state.isLoaded} width={300} color={'powderblue'} />
-      )}
-      <TouchableOpacity style={styles.button} onPress={this.uploadImage} >
-        <Text style={styles.buttontext} >
-          Upload this picture
-          </Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+            <TouchableOpacity onPress={this.handlePicker} style={styles.button} >
+              <Text style={styles.buttontext} > Pick an Image </Text>
+            </TouchableOpacity>
+
+            <Image
+              style={styles.image}
+              source={{ uri: this.state.imageKey }}
+            />
+          </View>
+
+          {(this.state.toUpload && this.state.imageKey != '') && (
+            <ProgressBar progress={this.state.isLoaded} width={300} color={'powderblue'} />
+          )}
+          <TouchableOpacity style={styles.button} onPress={this.uploadImage} >
+            <Text style={styles.buttontext} >
+              Upload this picture
+           </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button} onPress={() => this.downloadImage(this.state.response)} >
+            <Text style={styles.buttontext} >
+              Download this picture
+           </Text>
+          </TouchableOpacity>
+          <Image
+            style={styles.image}
+            source={{ uri: this.state.location }}
+          />
+        </View>
+      </ScrollView>
+
+    );
+  }
 }
 
 const styles = StyleSheet.create({

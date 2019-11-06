@@ -20,5 +20,14 @@ export default StyleSheet.create({
     fontSize:22,
     color:'powderblue',
     fontWeight:'bold'
+  },
+  textInput:{
+    height:50, 
+    width:200, 
+    backgroundColor:'#f1f1f1', 
+    fontSize:16, 
+    fontWeight:'500',
+    paddingLeft:10,
+    borderRadius:10
   }
 })
