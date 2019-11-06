@@ -4,7 +4,7 @@ export default StyleSheet.create({
   buttonStyles: {
     fontWeight: 'bold',
     fontSize: 20,
-    padding: 15,
+    padding: 10,
     color: '#205c64'
   },
   buttonContainer: {
