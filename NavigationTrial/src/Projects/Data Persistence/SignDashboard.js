@@ -20,7 +20,7 @@ export default class SignDashboard extends Component {
 
     handleEdit = () => {
         AsyncStorage.clear()
-        this.props.navigation.push('splash')
+        this.props.navigation.push('signUp')
     }
 
     render() {

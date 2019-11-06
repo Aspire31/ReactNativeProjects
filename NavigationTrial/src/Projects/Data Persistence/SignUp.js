@@ -49,7 +49,6 @@ export default class SignUp extends Component {
                     <Text style={style.text} > Your Email: </Text>
                     <TextInput
                         style={style.textInput}
-                        value={this.state.data}
                         placeholder='Enter Your Email'
                         onChangeText={(text) => this.setState({ data: text })}
                         onSubmitEditing={() => this.storeData(this.state.data)}

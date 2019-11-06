@@ -30,7 +30,7 @@ export default class LoginDashboard extends Component {
     }
     handleEdit = () => {
         AsyncStorage.clear()
-        this.props.navigation.push('splash')
+        this.props.navigation.push('login')
     }
 
     render() {
