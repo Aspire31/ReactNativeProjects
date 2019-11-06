@@ -8,7 +8,6 @@ export default class LoginDashboard extends Component {
         super(props);
         this.state = {
             email: '',
-            email: '',
             firstName: '',
             lastName: '',
             birthday: '',
