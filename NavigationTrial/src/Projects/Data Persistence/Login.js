@@ -46,7 +46,7 @@ export default class SignUp extends Component {
         if (this.state.email != '' && this.state.firstName != '' && this.state.lastName != '' && this.state.birthday != '' && this.state.state != '' && this.state.country != '') {
             // [["firstName", this.state.firstName],["lastName", this.state.lastName],["email", this.state.email],["birthday", this.state.birthday],["state", this.state.state],["country", this.state.country]]
             
-            const firstName = ["firstName", this.state.firstName]
+                const firstName = ["firstName", this.state.firstName]
                 const lastName = ["lastName", this.state.lastName]
                 const email = ["email2", this.state.email]
                 const birthday = ["birthday", this.state.birthday]

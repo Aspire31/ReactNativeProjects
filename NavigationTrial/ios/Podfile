@@ -37,6 +37,10 @@ target 'NavigationTrial' do
 
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
+  pod 'GoogleSignIn', '~> 5.0.0'
+  pod 'Firebase/Core'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 
   target 'NavigationTrialTests' do
     inherit! :search_paths

@@ -20,7 +20,7 @@ export default class SignDashboard extends Component {
 
     handleEdit = () => {
         AsyncStorage.clear()
-        this.props.navigation.push('signUp')
+        this.props.navigation.push('login')
     }
 
     render() {
@@ -42,13 +42,13 @@ export default class SignDashboard extends Component {
                         </Text>
                     </View>
 
-                    <Text style={[style.buttonStyles]} >
+                    {/* <Text style={[style.buttonStyles]} >
                         Something Wrong?
-                    </Text>
+                    </Text> */}
 
                     <TouchableOpacity style={styles.button} onPress={() => this.handleEdit()} >
                         <Text style={[styles.editText, { color: '#770e0e' }]} >
-                            Edit your details
+                            Complete your Profile!
                             </Text>
                     </TouchableOpacity>
                 </View>

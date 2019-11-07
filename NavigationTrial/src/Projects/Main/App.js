@@ -18,6 +18,10 @@ import ChallengeScreen from '../ChallengeScreen/ChallengeScreen.js'
 import HallOfFame from '../HallOfFame/HallOfFame.js'
 import SearchAPI from '../NewsAPIHIT/SearchAPI.js'
 
+import mainScreen from '../googleSignIn/mainScreen'
+import mainfbScreen from '../facebookSignIn/mainfbScreen'
+import showingData from '../googleSignIn/showingData'
+
 import MainFile from '../ImagePicker/MainFile.js'
 import ChangePicture from '../ImagePicker/ChangePicture.js'
 import ImageOnLoad from '../ImagePicker/ImageOnLoad.js'
@@ -44,6 +48,8 @@ class HomeScreen extends React.Component {
       </TouchableOpacity>
     )
   })
+  
+  
 
   render() {
     return (
@@ -53,6 +59,7 @@ class HomeScreen extends React.Component {
           Click Any Button To View Different Projects!
         </Text>
         <ScrollView style={{ margin: 15 }} >
+          
           <TouchableOpacity onPress={() => { this.props.navigation.push("APIHit"); }}>
             <View style={style.buttonContainer} >
               <Text style={style.buttonStyles} >
@@ -145,7 +152,23 @@ class HomeScreen extends React.Component {
             <View style={style.buttonContainer} >
               <Text style={style.buttonStyles} >
                 Data Persistence >
-          </Text>
+             </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { this.props.navigation.push("google"); }}>
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
+                Google Sign In >
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { this.props.navigation.push("fb"); }}>
+            <View style={style.buttonContainer} >
+              <Text style={style.buttonStyles} >
+                Facebook Sign In >
+              </Text>
             </View>
           </TouchableOpacity>
 
@@ -190,11 +213,14 @@ const AppNavigator = createStackNavigator({
   editMain: { screen: MainScreen, navigationOptions: { title: 'Main Screen' } },
   editScreen: { screen: EditScreen, navigationOptions: { title: 'Edit Screen' } },
   local: { screen: localeEG, navigationOptions: { title: 'Locale Example' } },
-  splash: { screen: SplashScreen, navigationOptions: {  header: null} },
+  splash: { screen: SplashScreen, navigationOptions: { header: null } },
   login: { screen: Login, navigationOptions: { title: 'Login' } },
   signUp: { screen: SignUp, navigationOptions: { title: 'Sign Up' } },
   loginDashboard: { screen: LoginDashboard, navigationOptions: { title: 'Your Dashboard' } },
   signDashboard: { screen: SignDashboard, navigationOptions: { title: 'Your Dashboard' } },
+  google: { screen: mainScreen, navigationOptions: { title: 'Google Sign In' } },
+  fb:{screen:mainfbScreen , navigationOptions: { title: 'FB Sign In' }},
+  showingData:{screen: showingData, navigationOptions: { title: 'Showing Data' }}
 },
   {
     initialRouteName: 'Home',
