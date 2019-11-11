@@ -22,7 +22,7 @@ export default class showingData extends Component {
         await GoogleSignin.signOut();
         // this.setState({ userInfo: '', logged: false });
         AsyncStorage.clear();
-        this.props.navigation.navigate('google')
+        this.props.navigation.push('google')
     } catch (error) {
         console.error(error);
     }

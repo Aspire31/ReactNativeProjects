@@ -13,8 +13,8 @@ export default class mainScreen extends Component {
             userInfo: '',
             isLogged: false,
             phoneNumber: '',
-            age:'',
-            birthday:''
+            age: '',
+            birthday: ''
         };
     }
 
@@ -40,41 +40,41 @@ export default class mainScreen extends Component {
                 <Text style={[style.text, { marginTop: 10 }]}> {this.state.userInfo.user.name} </Text>
                 <Text style={[style.text, { marginTop: 10 }]}  > {this.state.userInfo.user.email} </Text>
                 <Text style={[style.text, { marginTop: 10 }]}  > Please add the rest of your details! </Text>
-                
-                <View style={{flexDirection:'column'}} >
+
+                <View style={{ flexDirection: 'column' }} >
                     <View style={styles.fieldText} >
-                        <Text style={[style.text, { marginTop: 10, marginRight:20 }]}>
-                            Number: 
+                        <Text style={[style.text, { marginTop: 10, marginRight: 20 }]}>
+                            Number:
                         </Text>
-                        <TextInput 
-                        style={[style.textInput]}
-                        placeholder = "Your Response"
-                        onChangeText = {(text)=> {this.setState({phoneNumber:text})}}
+                        <TextInput
+                            style={[style.textInput]}
+                            placeholder="Your Response"
+                            onChangeText={(text) => { this.setState({ phoneNumber: text }) }}
                         />
                     </View>
                     <View style={styles.fieldText} >
-                        <Text style={[style.text, { marginTop: 10, marginRight:20 }]}>
-                            Age: 
+                        <Text style={[style.text, { marginTop: 10, marginRight: 20 }]}>
+                            Age:
                         </Text>
-                        <TextInput 
-                        style={[style.textInput]}
-                        placeholder = "Your Response"
-                        onChangeText = {(text)=> {this.setState({age:text})}}
+                        <TextInput
+                            style={[style.textInput]}
+                            placeholder="Your Response"
+                            onChangeText={(text) => { this.setState({ age: text }) }}
                         />
                     </View>
                     <View style={styles.fieldText} >
-                        <Text style={[style.text, { marginTop: 10, marginRight:20 }]}>
-                            Birthday: 
+                        <Text style={[style.text, { marginTop: 10, marginRight: 20 }]}>
+                            Birthday:
                         </Text>
-                        <TextInput 
-                        style={[style.textInput]}
-                        placeholder = "Your Response"
-                        onChangeText = {(text)=> {this.setState({birthday:text})}}
+                        <TextInput
+                            style={[style.textInput]}
+                            placeholder="Your Response"
+                            onChangeText={(text) => { this.setState({ birthday: text }) }}
                         />
                     </View>
                 </View>
 
-                <TouchableOpacity style={style.buttonContainer} onPress={()=>this.storeRestOfData(this.state.phoneNumber,this.state.age,this.state.birthday)} >
+                <TouchableOpacity style={style.buttonContainer} onPress={() => this.storeRestOfData(this.state.phoneNumber, this.state.age, this.state.birthday)} >
                     <Text style={style.buttonStyles}>
                         Submit
                     </Text>
@@ -83,19 +83,19 @@ export default class mainScreen extends Component {
         )
     }
 
-    storeRestOfData = (num,age,birth) =>{
+    storeRestOfData = (num, age, birth) => {
         var obj = {
             number: num,
-            ageYour:age,
-            birthday:birth 
+            ageYour: age,
+            birthday: birth
         }
         AsyncStorage.setItem("restOfData", JSON.stringify(obj))
-        this.props.navigation.navigate('showingData',{
+        this.props.navigation.navigate('showingData', {
             userData: this.state.userInfo,
-            logged:this.state.isLogged,
-            num:this.state.phoneNumber,
-            age:this.state.age,
-            birth:this.state.birthday
+            logged: this.state.isLogged,
+            num: this.state.phoneNumber,
+            age: this.state.age,
+            birth: this.state.birthday
         })
     }
 
@@ -115,7 +115,18 @@ export default class mainScreen extends Component {
     signIn = async () => {
         try {
             await GoogleSignin.hasPlayServices();
+            //  await GoogleSignin.configure();
             const userInfo = await GoogleSignin.signIn();
+            debugger
+
+            const tokens = await GoogleSignin.getTokens();
+            debugger
+
+            // const credential = firebase.auth.GoogleAuthProvider.credential(userInfo.idToken, null)
+            // login with credential
+            // const firebaseUserCredential = await firebase.auth().signInWithCredential(credential);
+
+            // console.warn(JSON.stringify(firebaseUserCredential.user.toJSON()));
             this.setState({ userInfo: userInfo, isLogged: true });
             this.storeData(this.state.userInfo, this.state.isLogged);
         } catch (error) {
@@ -182,10 +193,10 @@ const styles = StyleSheet.create({
         width: 120,
         borderRadius: 200,
     },
-    fieldText:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center',
-        marginTop:20
+    fieldText: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 20
     }
 })
