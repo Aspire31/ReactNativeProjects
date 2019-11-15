@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>107513759921-ekf1agj297iej66ekvktip74cms6ec95.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.107513759921-ekf1agj297iej66ekvktip74cms6ec95</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDi9IJHRQf5vo-NTMitfAl3vcycWahheME</string>
+	<key>GCM_SENDER_ID</key>
+	<string>107513759921</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.RN-Projects-All</string>
+	<key>PROJECT_ID</key>
+	<string>reactnative-da307</string>
+	<key>STORAGE_BUCKET</key>
+	<string>reactnative-da307.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:107513759921:ios:e9994d7516ce691acafa90</string>
+	<key>DATABASE_URL</key>
+	<string>https://reactnative-da307.firebaseio.com</string>
+</dict>
+</plist>
